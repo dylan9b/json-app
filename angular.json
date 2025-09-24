@@ -24,11 +24,13 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/fonts", "src/styles"]
+            },
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -80,9 +82,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }
