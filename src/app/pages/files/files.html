@@ -1,1 +1,8 @@
-<p>files works!</p>
+<section>
+  <article>
+    <h1>5 files</h1>
+    <app-button variant="primary" label="Upload file" (clickButton)="onUploadFile()"></app-button>
+  </article>
+
+  <app-table-row [files]="files"> </app-table-row>
+</section>

@@ -1,0 +1,19 @@
+section {
+  padding: 1.5rem;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-weight: 600;
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+}
