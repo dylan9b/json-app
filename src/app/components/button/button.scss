@@ -8,17 +8,24 @@ button {
   font-weight: 600;
   cursor: pointer;
   border: none;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   transition: 0.2s ease-in-out;
 }
 
-:host(.primary) button {
-  background-color: $blue-01;
-  color: white;
-}
+:host {
+  &.primary {
+    button {
+      background-color: $blue-01;
+      border: 2px solid $blue-01;
+      color: white;
+    }
+  }
 
-:host(.secondary) button {
-  background-color: white;
-  color: $grey-01;
-  border: 2px solid $grey-02;
+  &.secondary {
+    button {
+      background-color: white;
+      color: $grey-01;
+      border: 2px solid $grey-02;
+    }
+  }
 }

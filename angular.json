@@ -30,7 +30,12 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/fonts", "src/styles"]
             },
-            "styles": ["src/styles.scss"]
+            "styles": [
+              "src/styles.scss"
+            ],
+            "polyfills": [
+              "@angular/localize/init"
+            ]
           },
           "configurations": {
             "production": {
@@ -82,7 +87,12 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": [
+              "src/styles.scss"
+            ],
+            "polyfills": [
+              "@angular/localize/init"
+            ]
           }
         }
       }

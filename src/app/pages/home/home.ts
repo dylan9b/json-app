@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Button } from '@components/button/button';
+import { SelectModal } from '@components/modal/select-modal/select-modal';
+import { ModalService } from '@services/modal.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,9 @@ import { Button } from '@components/button/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
+  private readonly _modalService = inject(ModalService);
+
   onUploadFile(): void {
-    console.log('upload file');
+    this._modalService.open(SelectModal, { size: 'md', centered: true });
   }
 }
