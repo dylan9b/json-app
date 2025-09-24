@@ -15,8 +15,7 @@ import { ModalService } from '@services/modal.service';
 })
 export class SelectModal {
   private readonly _formBuilder = inject(FormBuilder);
-  private readonly _modalService = inject(ModalService);
-
+  
   protected isFormSubmitted = false;
   protected form!: FormGroup;
   protected readonly activeModal = inject(NgbActiveModal);
@@ -62,6 +61,6 @@ export class SelectModal {
   }
 
   onCancel(): void {
-    this._modalService.close();
+    this.activeModal.close();
   }
 }

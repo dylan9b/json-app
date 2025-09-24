@@ -10,8 +10,4 @@ export class ModalService {
   open<T>(component: Type<T>, options?: NgbModalOptions): NgbModalRef {
     return this._ngbModal.open(component, options);
   }
-
-  close(): void {
-    this._ngbModal.dismissAll();
-  }
 }

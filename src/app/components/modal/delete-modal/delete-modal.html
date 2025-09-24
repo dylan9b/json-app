@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title">Confirm</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  Are you sure you want to delete the file «{{ fileName() }}»?
+</div>
+<div class="modal-footer">
+  <app-button variant="secondary" label="Cancel" (clickButton)="onCancel()"></app-button>
+  <app-button variant="primary" label="Confirm" (clickButton)="onConfirm()"></app-button>
+</div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Button } from '@components/button/button';
 import { SelectModal } from '@components/modal/select-modal/select-modal';
 import { ModalService } from '@services/modal.service';
@@ -16,5 +16,8 @@ export class Home {
 
   onUploadFile(): void {
     this._modalService.open(SelectModal, { size: 'md', centered: true });
+
+    // const modalRef = this._modalService.open(DeleteModal, { size: 'md', centered: true });
+    // modalRef.componentInstance.fileName = signal('world.json'); 
   }
 }
