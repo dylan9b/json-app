@@ -1,9 +1,7 @@
 import {
-  AbstractControl,
   FormControl,
   ValidationErrors,
   ValidatorFn,
-  Validators,
 } from '@angular/forms';
 
 const githubUsername = 'test123';
@@ -43,26 +41,9 @@ const validateDescription: ValidatorFn = (control): ValidationErrors | null => {
   return null;
 };
 
-export const validateJsonContent: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-  const fileList: FileList = control.value;
-  if (!fileList || fileList.length === 0) {
-    return { required: { message: 'File is required' } };
-  }
-
-  const file = fileList[0];
-
-  // Optional: quick type check
-  if (!file.name.toLowerCase().endsWith('.json')) {
-    return { invalidFileType: { message: 'Only JSON files are allowed' } };
-  }
-
-  // Return null for now; async content check is needed below
-  return null;
-};
-
 export class SelectModalFormControl {
   constructor(
-    public file: FormControl = new FormControl(null, [validateJsonContent]),
+    public file: FormControl = new FormControl(null),
     public name: FormControl = new FormControl(null, [validateName]),
     public description: FormControl = new FormControl(null, [validateDescription])
   ) {}

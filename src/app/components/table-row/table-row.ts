@@ -3,6 +3,7 @@ import { TableRowModel } from './_model/table-row.model';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '@services/modal.service';
 import { DeleteModal } from '@components/modal/delete-modal/delete-modal';
+import { UploadedFileModel } from 'app/store/files.state';
 
 @Component({
   selector: 'app-table-row',
@@ -15,7 +16,7 @@ import { DeleteModal } from '@components/modal/delete-modal/delete-modal';
 export class TableRow {
   private readonly _modalService = inject(ModalService);
 
-  readonly files = input.required<TableRowModel[]>();
+  readonly files = input.required<UploadedFileModel[]>();
 
   // protected readonly page = 1;
   // protected readonly pageSize = 2;

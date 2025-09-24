@@ -1,6 +1,6 @@
 export interface TableRowModel {
   id: string;
-  file: string;
+  file: File;
   name: string;
   description: string;
   isValid: boolean;

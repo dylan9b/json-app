@@ -14,7 +14,7 @@
       <tr [class.inValid]="!file.isValid">
         <td class="file">
           <img src="assets/images/icon_file_upload.svg" alt="File icon" width="16" height="16" />
-          {{ file.file }}
+          {{ file.file.name }}
         </td>
         <td>
           {{ file.name }}
@@ -27,7 +27,7 @@
         </td>
         <td class="file-remove">
           <img
-            (click)="onDeleteFile(file.file)"
+            (click)="onDeleteFile(file.id)"
             src="assets/images/icon_remove.svg"
             alt="Remove file icon"
             width="16"
