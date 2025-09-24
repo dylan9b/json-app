@@ -1,1 +1,11 @@
-<p>nav-bar works!</p>
+<aside>
+  <a routerLink="/" class="logo-container">
+    <img src="assets/images/logo.svg" alt="Logo" width="28" height="28" />
+    GetYourJSON
+  </a>
+  <nav>
+    @for(item of navItems; track item.label) {
+    <a [routerLink]="item?.route" routerLinkActive="active">{{ item?.label }}</a>
+    }
+  </nav>
+</aside>
