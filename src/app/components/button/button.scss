@@ -1,0 +1,24 @@
+@use 'colors' as *;
+
+button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  padding: 1rem 2rem;
+  transition: 0.2s ease-in-out;
+}
+
+:host(.primary) button {
+  background-color: $blue-01;
+  color: white;
+}
+
+:host(.secondary) button {
+  background-color: white;
+  color: $grey-01;
+  border: 2px solid $grey-02;
+}
