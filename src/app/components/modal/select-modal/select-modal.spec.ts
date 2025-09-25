@@ -73,39 +73,6 @@ describe('SelectModal', () => {
     expect(component['form'].get('file')?.errors).toBeNull();
   });
 
-  // it('should upload file and close modal on successful upload', async () => {
-  //   const mockFile = new File([JSON.stringify({ a: 1 })], 'test.json', {
-  //     type: 'application/json',
-  //   });
-
-  //   // Set uploaded file signal
-  //   component['uploadedFileSignal'].set(mockFile);
-
-  //   // Add 'file' control to form and make form valid
-  //   component['form'].addControl('file', new FormControl(mockFile));
-  //   component['form'].patchValue({
-  //     name: 'Test File',
-  //     description: 'Test Description',
-  //     file: mockFile,
-  //   });
-
-  //   await component.onUpload();
-
-  //   expect(fileUtilsMock.validateJsonFile).toHaveBeenCalledWith(mockFile);
-  //   expect(fileUtilsMock.generateUniqueId).toHaveBeenCalledWith('Test File');
-  //   expect(fileStoreMock.uploadFile).toHaveBeenCalledWith(
-  //     expect.objectContaining({
-  //       id: 'unique-id-123',
-  //       name: 'Test File',
-  //       description: 'Test Description',
-  //       file: mockFile,
-  //       isValid: true,
-  //       isDeleted: false,
-  //     })
-  //   );
-  //   expect(activeModalMock.close).toHaveBeenCalled();
-  // });
-
   it('should not upload if form is invalid', async () => {
     component['form'].get('file')?.setErrors({ required: true });
     component['uploadedFileSignal'].set(mockFile);
@@ -126,26 +93,6 @@ describe('SelectModal', () => {
     expect(fileStoreMock.uploadFile).not.toHaveBeenCalled();
     expect(activeModalMock.close).not.toHaveBeenCalled();
   });
-
-  // it('should set form error if JSON validation fails', async () => {
-  //   const invalidJsonResult: ValidateJsonResult = {
-  //     isValid: false,
-  //     error: { invalidJson: { message: 'Invalid JSON' } },
-  //   };
-  //   fileUtilsMock.validateJsonFile.mockResolvedValueOnce(invalidJsonResult);
-
-  //   // Set uploaded file signal
-  //   component['uploadedFileSignal'].set(mockFile);
-
-  //   // Ensure file control exists
-  //   component['form'].addControl('file', component['form'].get('file') || new FormControl());
-
-  //   await component.onUpload();
-
-  //   expect(component['form'].get('file')?.errors).toEqual(invalidJsonResult.error);
-  //   expect(fileStoreMock.uploadFile).not.toHaveBeenCalled();
-  //   expect(activeModalMock.close).not.toHaveBeenCalled();
-  // });
 
   it('should close modal on cancel', () => {
     component.onCancel();
