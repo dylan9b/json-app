@@ -22,6 +22,18 @@
       "<rootDir>/node_modules/",
       "<rootDir>/dist/"
     ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "html"
+    ],
+    "moduleNameMapper": {
+      "^@shared/(.*)$": "<rootDir>/src/app/shared/$1",
+      "^@components/(.*)$": "<rootDir>/src/app/components/$1",
+      "^@pages/(.*)$": "<rootDir>/src/app/pages/$1",
+      "^@services/(.*)$": "<rootDir>/src/app/services/$1",
+      "^@store/(.*)$": "<rootDir>/src/app/store/$1"
+    },
     "globals": {
       "transform": {
         "^.+\\.(ts|js|html)$": [

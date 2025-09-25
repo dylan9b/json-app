@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SelectModalFormControl } from './_model/select-modal.form.model';
 import { Button } from '@components/button/button';
-import { FileStore } from 'app/store/files.store';
-import { UploadedFileModel } from 'app/store/files.state';
+import { FileStore } from '@store/files.store';
+import { UploadedFileModel } from '@store/files.state';
 import { FileUtilsService } from '@services/file-utils.service';
 
 @Component({

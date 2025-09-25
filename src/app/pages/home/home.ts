@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Button } from '@components/button/button';
 import { SelectModal } from '@components/modal/select-modal/select-modal';
 import { ModalService } from '@services/modal.service';
-import { FileStore } from 'app/store/files.store';
+import { FileStore } from '@store/files.store';
 
 @Component({
   selector: 'app-home',
