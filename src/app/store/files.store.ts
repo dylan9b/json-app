@@ -12,9 +12,9 @@ import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { PlatformService } from '@services/platform.service';
 
 const initialState: FileState = {
-  filter: {
+  pagination: {
     page: 1,
-    pageSize: 10,
+    pageSize: 5,
   },
   uploadedFiles: {},
 };
@@ -71,6 +71,16 @@ export const FileStore = signalStore(
         JSON_FILES_LOCAL_STORAGE,
         JSON.stringify(store.uploadedFiles())
       );
+    },
+
+    updatePagination(pagination: Partial<FileState['pagination']>): void {
+      patchState(store, (state) => ({
+        ...state,
+        pagination: {
+          ...state.pagination,
+          ...pagination,
+        },
+      }));
     },
   })),
   withHooks((store, platformService = inject(PlatformService)) => ({

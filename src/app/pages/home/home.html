@@ -4,10 +4,10 @@
     <h1>Welcome!</h1>
     <p>Upload JSON files in a quick and efficient way.</p>
     <a routerLink="/files">
-      @if (files().length) {
+      @if (filesSignal().length) {
 
-      {{ files().length }} file{{ files().length === 1 ? '' : 's' }} uploaded already } @else { No
-      files uploaded yet }
+      {{ filesSignal().length }} file{{ filesSignal().length === 1 ? '' : 's' }} uploaded already }
+      @else { No files uploaded yet }
     </a>
 
     <app-button variant="primary" label="Upload file" (clickButton)="onUploadFile()"></app-button>

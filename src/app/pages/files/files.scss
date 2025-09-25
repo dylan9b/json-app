@@ -3,6 +3,11 @@ section {
   gap: 1.5rem;
   display: flex;
   flex-direction: column;
+  height: 100%;
+
+  app-table-row {
+    height: 100%;
+  }
 
   article {
     display: flex;

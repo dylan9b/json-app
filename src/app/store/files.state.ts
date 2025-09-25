@@ -5,7 +5,7 @@ export interface UploadedFileModel extends TableRowModel {
 }
 
 export interface FileState {
-  filter: {
+  pagination: {
     page: number;
     pageSize: number;
   };

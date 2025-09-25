@@ -5,6 +5,11 @@
 }
 
 section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   thead {
     th {
       background-color: $grey-04;
@@ -12,6 +17,9 @@ section {
       padding: 0.5rem 1rem;
       height: 3.5rem;
       vertical-align: middle;
+      &:first-of-type {
+        width: 20%;
+      }
     }
   }
 
@@ -21,6 +29,10 @@ section {
       background-color: $red-02;
     }
     td {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
       padding: 0.5rem 1rem;
       min-height: 3.5rem;
       vertical-align: middle;
@@ -30,6 +42,18 @@ section {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+
+        > span {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          max-width: 13rem;
+        }
+
+        &-name,
+        &-description {
+          max-width: 4rem;
+        }
 
         &-remove {
           cursor: pointer;

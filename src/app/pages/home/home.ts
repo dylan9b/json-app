@@ -17,7 +17,7 @@ export class Home {
   private readonly _modalService = inject(ModalService);
   private readonly _fileStore = inject(FileStore);
 
-  protected readonly files = this._fileStore.filesUploaded;
+  protected readonly filesSignal = this._fileStore.filesUploaded;
 
   onUploadFile(): void {
     this._modalService.open(SelectModal, { size: 'md', centered: true });
