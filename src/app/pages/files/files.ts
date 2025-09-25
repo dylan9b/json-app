@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Button } from '@components/button/button';
 import { SelectModal } from '@components/modal/select-modal/select-modal';
-import { TableRowModel } from '@components/table-row/_model/table-row.model';
 import { TableRow } from '@components/table-row/table-row';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '@services/modal.service';

@@ -55,7 +55,6 @@ export const FileStore = signalStore(
     },
 
     deleteFile(file: UploadedFileModel): void {
-      debugger;
       patchState(store, (state) => ({
         ...state,
         uploadedFiles: {

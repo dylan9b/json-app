@@ -33,13 +33,20 @@
             </span>
           </td>
           <td class="file-remove">
-            <img
+            <button
+              type="button"
               (click)="onDeleteFile(file)"
-              src="assets/images/icon_remove.svg"
-              alt="Remove file icon"
-              width="16"
-              height="16"
-            />
+              (keydown.enter)="onDeleteFile(file)"
+              class="btn"
+              aria-label="Remove file"
+            >
+              <img
+                src="assets/images/icon_remove.svg"
+                alt="Remove file icon"
+                width="16"
+                height="16"
+              />
+            </button>
           </td>
         </tr>
       }

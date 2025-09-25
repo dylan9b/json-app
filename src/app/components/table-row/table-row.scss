@@ -57,6 +57,11 @@ section {
 
         &-remove {
           cursor: pointer;
+          text-align: right;
+
+          button {
+            padding: 0;
+          }
         }
       }
 

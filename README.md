@@ -59,10 +59,10 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 # json-app
 
-# Assumptions
+# Assumptions and Considerations
 - Since there is no mobile design, I adapted the same layout and also used table for list page but added ellipses to maintain structure.
 - The ability to restore a deleted item from user's browser is done by manually manipulating the localStorage and setting 'isDeleted' to true. This simulated what might happen in an actual scneario through an api call where soft-delete is performed.
 - Clicking on the logo in navbar, redirects user to home page.
 - Invalid pages redirect back to home page as well.
 - Global signal store is used instead of traditional @ngrx/store as it reduces boiler plate code and is reactive by nature (uses signals)
-- 
+- Even though ng-bootstrap contains also bootstrap utility classes, I am using custom styling in component.scss files so that if another framework is used (ex vue, react, etc), there wouldn't be any impact in re-writing the specific styling classes.

@@ -63,7 +63,7 @@ export class SelectModal {
     }
 
     // Validate the file (extension + JSON content)
-    const { isValid, content, error } =
+    const { isValid, error } =
       await this._fileUtilsService.validateJsonFile(uploadedFile);
 
     if (error) {
@@ -96,7 +96,7 @@ export class SelectModal {
       const fileContent = file.text();
       JSON.parse(await fileContent);
       return true;
-    } catch (e) {
+    } catch {
       return false;
     }
   }

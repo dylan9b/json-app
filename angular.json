@@ -28,7 +28,10 @@
               "src/assets"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets/fonts", "src/styles"]
+              "includePaths": [
+                "src/assets/fonts",
+                "src/styles"
+              ]
             },
             "styles": [
               "src/styles.scss"
@@ -94,11 +97,23 @@
               "@angular/localize/init"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
