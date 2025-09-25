@@ -1,15 +1,28 @@
 <section>
-  <img src="assets/images/card-img.svg" alt="Welcome image" width="300" height="300" />
+  <img
+    src="assets/images/card-img.svg"
+    alt="Welcome image"
+    width="300"
+    height="300"
+  />
   <article>
     <h1>Welcome!</h1>
     <p>Upload JSON files in a quick and efficient way.</p>
     <a routerLink="/files">
       @if (filesSignal().length) {
-
-      {{ filesSignal().length }} file{{ filesSignal().length === 1 ? '' : 's' }} uploaded already }
-      @else { No files uploaded yet }
+        {{ filesSignal().length }} file{{
+          filesSignal().length === 1 ? "" : "s"
+        }}
+        uploaded already
+      } @else {
+        No files uploaded yet
+      }
     </a>
 
-    <app-button variant="primary" label="Upload file" (clickButton)="onUploadFile()"></app-button>
+    <app-button
+      variant="primary"
+      label="Upload file"
+      (clickButton)="onUploadFile()"
+    ></app-button>
   </article>
 </section>

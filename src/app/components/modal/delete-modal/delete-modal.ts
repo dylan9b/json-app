@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 import { Button } from '@components/button/button';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UploadedFileModel } from 'app/store/files.state';
@@ -14,7 +19,7 @@ import { FileStore } from 'app/store/files.store';
 })
 export class DeleteModal {
   private readonly _fileStore = inject(FileStore);
-  
+
   protected readonly activeModal = inject(NgbActiveModal);
 
   readonly file = input.required<UploadedFileModel>();

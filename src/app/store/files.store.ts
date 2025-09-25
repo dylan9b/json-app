@@ -29,7 +29,7 @@ export const FileStore = signalStore(
     filesUploaded: computed(() =>
       Object.keys(state.uploadedFiles())
         .map((key) => state.uploadedFiles()[key])
-        .filter((item) => !item.isDeleted)
+        .filter((item) => !item.isDeleted),
     ),
   })),
   withMethods((store, platformService = inject(PlatformService)) => ({
@@ -50,7 +50,7 @@ export const FileStore = signalStore(
 
       platformService.localStorage?.setItem(
         JSON_FILES_LOCAL_STORAGE,
-        JSON.stringify(store.uploadedFiles())
+        JSON.stringify(store.uploadedFiles()),
       );
     },
 
@@ -69,7 +69,7 @@ export const FileStore = signalStore(
 
       platformService.localStorage?.setItem(
         JSON_FILES_LOCAL_STORAGE,
-        JSON.stringify(store.uploadedFiles())
+        JSON.stringify(store.uploadedFiles()),
       );
     },
 
@@ -86,7 +86,7 @@ export const FileStore = signalStore(
   withHooks((store, platformService = inject(PlatformService)) => ({
     onInit(): void {
       const uploadedFilesInLocalStorage = JSON.parse(
-        platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ?? '{}'
+        platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ?? '{}',
       );
 
       patchState(store, (state) => ({
@@ -96,5 +96,5 @@ export const FileStore = signalStore(
         },
       }));
     },
-  }))
+  })),
 );

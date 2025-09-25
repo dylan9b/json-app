@@ -11,32 +11,37 @@
     </thead>
     <tbody>
       @for (file of paginatedFilesSignal(); track file.id) {
-      <tr [class.inValid]="!file.isValid">
-        <td class="file">
-          <img src="assets/images/icon_file_upload.svg" alt="File icon" width="16" height="16" />
-          <span>
-            {{ file.file.name }}
-          </span>
-        </td>
-        <td class="file-name">
-          {{ file.name }}
-        </td>
-        <td class="file-description">{{ file.description }}</td>
-        <td [class.valid]="file.isValid" [class.inValid]="!file.isValid">
-          <span>
-            {{ file.isValid ? 'Valid' : 'Invalid' }}
-          </span>
-        </td>
-        <td class="file-remove">
-          <img
-            (click)="onDeleteFile(file)"
-            src="assets/images/icon_remove.svg"
-            alt="Remove file icon"
-            width="16"
-            height="16"
-          />
-        </td>
-      </tr>
+        <tr [class.inValid]="!file.isValid">
+          <td class="file">
+            <img
+              src="assets/images/icon_file_upload.svg"
+              alt="File icon"
+              width="16"
+              height="16"
+            />
+            <span>
+              {{ file.file.name }}
+            </span>
+          </td>
+          <td class="file-name">
+            {{ file.name }}
+          </td>
+          <td class="file-description">{{ file.description }}</td>
+          <td [class.valid]="file.isValid" [class.inValid]="!file.isValid">
+            <span>
+              {{ file.isValid ? "Valid" : "Invalid" }}
+            </span>
+          </td>
+          <td class="file-remove">
+            <img
+              (click)="onDeleteFile(file)"
+              src="assets/images/icon_remove.svg"
+              alt="Remove file icon"
+              width="16"
+              height="16"
+            />
+          </td>
+        </tr>
       }
     </tbody>
   </table>

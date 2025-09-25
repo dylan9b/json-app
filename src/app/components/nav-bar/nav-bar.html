@@ -4,8 +4,10 @@
     GetYourJSON
   </a>
   <nav>
-    @for(item of navItems; track item.label) {
-    <a [routerLink]="item?.route" routerLinkActive="active">{{ item?.label }}</a>
+    @for (item of navItems; track item.label) {
+      <a [routerLink]="item?.route" routerLinkActive="active">{{
+        item?.label
+      }}</a>
     }
   </nav>
 </aside>

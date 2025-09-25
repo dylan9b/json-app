@@ -4,7 +4,8 @@ import { RoutesConstants } from './shared/routes.constants';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./components/layout/layout').then((c) => c.Layout),
+    loadComponent: () =>
+      import('./components/layout/layout').then((c) => c.Layout),
     children: [
       {
         path: '',

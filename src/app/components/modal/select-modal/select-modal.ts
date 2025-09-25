@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SelectModalFormControl } from './_model/select-modal.form.model';
@@ -58,7 +63,8 @@ export class SelectModal {
     }
 
     // Validate the file (extension + JSON content)
-    const { isValid, content, error } = await this._fileUtilsService.validateJsonFile(uploadedFile);
+    const { isValid, content, error } =
+      await this._fileUtilsService.validateJsonFile(uploadedFile);
 
     if (error) {
       // Set appropriate form errors

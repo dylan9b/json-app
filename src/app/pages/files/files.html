@@ -1,12 +1,20 @@
 <section>
   <article>
-    <h1>{{ filesSignal().length }} file{{ filesSignal().length === 1 ? '' : 's' }}</h1>
-    <app-button variant="primary" label="Upload file" (clickButton)="onUploadFile()"></app-button>
+    <h1>
+      {{ filesSignal().length }} file{{ filesSignal().length === 1 ? "" : "s" }}
+    </h1>
+    <app-button
+      variant="primary"
+      label="Upload file"
+      (clickButton)="onUploadFile()"
+    ></app-button>
   </article>
 
-  @if(filesSignal().length) {
-  <app-table-row [files]="filesSignal()"> </app-table-row>
+  @if (filesSignal().length) {
+    <app-table-row [files]="filesSignal()"> </app-table-row>
   } @else {
-  <ngb-alert [dismissible]="false"> <strong>Warning!</strong> No files uploaded yet. </ngb-alert>
+    <ngb-alert [dismissible]="false">
+      <strong>Warning!</strong> No files uploaded yet.
+    </ngb-alert>
   }
 </section>

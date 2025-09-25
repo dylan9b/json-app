@@ -19,12 +19,12 @@
         accept=".json,application/json"
       />
 
-      @if(form.get('file')?.errors && isFormSubmitted) {
-      <small class="error">
-        @for(key of objectKeys(form.get('file')?.errors ?? {}); track key) {
-        {{ form.get('file')?.errors?.[key]?.message }}
-        }
-      </small>
+      @if (form.get("file")?.errors && isFormSubmitted) {
+        <small class="error">
+          @for (key of objectKeys(form.get("file")?.errors ?? {}); track key) {
+            {{ form.get("file")?.errors?.[key]?.message }}
+          }
+        </small>
       }
     </fieldset>
 
@@ -33,31 +33,46 @@
       <label for="name" class="sr-only">Name</label>
       <input id="name" type="text" formControlName="name" placeholder="Name" />
 
-      @if(form.get('name')?.errors && isFormSubmitted) {
-      <small class="error">
-        @for(key of objectKeys(form.get('name')?.errors ?? {}); track key) {
-        {{ form.get('name')?.errors?.[key]?.message }}
-        }
-      </small>
+      @if (form.get("name")?.errors && isFormSubmitted) {
+        <small class="error">
+          @for (key of objectKeys(form.get("name")?.errors ?? {}); track key) {
+            {{ form.get("name")?.errors?.[key]?.message }}
+          }
+        </small>
       }
     </fieldset>
 
     <!-- DESCRIPTION -->
     <fieldset>
       <label for="description" class="sr-only">Description</label>
-      <input type="text" formControlName="description" placeholder="Description" />
+      <input
+        type="text"
+        formControlName="description"
+        placeholder="Description"
+      />
 
-      @if(form.get('description')?.errors && isFormSubmitted) {
-      <small class="error">
-        @for(key of objectKeys(form.get('description')?.errors ?? {}); track key) {
-        {{ form.get('description')?.errors?.[key]?.message }}
-        }
-      </small>
+      @if (form.get("description")?.errors && isFormSubmitted) {
+        <small class="error">
+          @for (
+            key of objectKeys(form.get("description")?.errors ?? {});
+            track key
+          ) {
+            {{ form.get("description")?.errors?.[key]?.message }}
+          }
+        </small>
       }
     </fieldset>
   </form>
 </div>
 <div class="modal-footer">
-  <app-button variant="secondary" label="Cancel" (clickButton)="onCancel()"></app-button>
-  <app-button variant="primary" label="Upload" (clickButton)="onUpload()"></app-button>
+  <app-button
+    variant="secondary"
+    label="Cancel"
+    (clickButton)="onCancel()"
+  ></app-button>
+  <app-button
+    variant="primary"
+    label="Upload"
+    (clickButton)="onUpload()"
+  ></app-button>
 </div>

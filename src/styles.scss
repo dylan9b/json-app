@@ -1,8 +1,8 @@
-@use 'fonts' as *;
-@use 'bootstrap/scss/bootstrap' as *;
+@use "fonts" as *;
+@use "bootstrap/scss/bootstrap" as *;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   margin: 0;
 }

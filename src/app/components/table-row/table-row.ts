@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '@services/modal.service';
 import { DeleteModal } from '@components/modal/delete-modal/delete-modal';
@@ -29,7 +36,10 @@ export class TableRow {
   });
 
   onDeleteFile(file: UploadedFileModel): void {
-    const modalRef = this._modalService.open(DeleteModal, { size: 'md', centered: true });
+    const modalRef = this._modalService.open(DeleteModal, {
+      size: 'md',
+      centered: true,
+    });
     modalRef.componentInstance.file = signal(file);
   }
 
