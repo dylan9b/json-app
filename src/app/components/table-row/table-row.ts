@@ -9,8 +9,8 @@ import {
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '@services/modal.service';
 import { DeleteModal } from '@components/modal/delete-modal/delete-modal';
-import { UploadedFileModel } from 'app/store/files.state';
-import { FileStore } from 'app/store/files.store';
+import { UploadedFileModel } from '@store/files.state';
+import { FileStore } from '@store/files.store';
 
 @Component({
   selector: 'app-table-row',

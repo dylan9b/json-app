@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 import { Button } from '@components/button/button';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { UploadedFileModel } from 'app/store/files.state';
-import { FileStore } from 'app/store/files.store';
+import { UploadedFileModel } from '@store/files.state';
+import { FileStore } from '@store/files.store';
 
 @Component({
   selector: 'app-delete-modal',

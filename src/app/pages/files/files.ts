@@ -4,7 +4,7 @@ import { SelectModal } from '@components/modal/select-modal/select-modal';
 import { TableRow } from '@components/table-row/table-row';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '@services/modal.service';
-import { FileStore } from 'app/store/files.store';
+import { FileStore } from '@store/files.store';
 
 @Component({
   selector: 'app-files',

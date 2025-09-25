@@ -1,5 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbModal,
+  NgbModalRef,
+  NgbModalOptions,
+} from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from './modal.service';
 import { Component, provideZonelessChangeDetection } from '@angular/core';
 
@@ -25,7 +29,7 @@ describe('ModalService', () => {
       providers: [
         ModalService,
         { provide: NgbModal, useValue: ngbModalMock },
-        provideZonelessChangeDetection()
+        provideZonelessChangeDetection(),
       ],
     });
 

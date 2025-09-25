@@ -7,7 +7,6 @@ import { Button } from '@components/button/button';
 import { provideRouter } from '@angular/router';
 import { SelectModal } from '@components/modal/select-modal/select-modal';
 
-// Subclass Home to expose protected member
 class TestHome extends Home {
   public getFilesSignal() {
     return this.filesSignal;
@@ -54,7 +53,7 @@ describe('Home', () => {
     });
   });
 
- it('should expose filesSignal from FileStore', () => {
+  it('should expose filesSignal from FileStore', () => {
     const files = component.getFilesSignal()(); // call the signal
     expect(files).toEqual([{ id: '1', name: 'file1.json' }]);
   });

@@ -67,7 +67,6 @@ export class SelectModal {
       await this._fileUtilsService.validateJsonFile(uploadedFile);
 
     if (error) {
-      // Set appropriate form errors
       this.form.get('file')?.setErrors(error);
       return;
     }
@@ -89,16 +88,6 @@ export class SelectModal {
     this._fileStore.uploadFile(fileModel);
 
     this.activeModal.close();
-  }
-
-  async isValidJSON(file: File): Promise<boolean> {
-    try {
-      const fileContent = file.text();
-      JSON.parse(await fileContent);
-      return true;
-    } catch {
-      return false;
-    }
   }
 
   onCancel(): void {
