@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { Button } from '@components/button/button';
 import { SelectModal } from '@components/modal/select-modal/select-modal';
 import { ModalService } from '@services/modal.service';
+import { FileStore } from 'app/store/files.store';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,11 @@ import { ModalService } from '@services/modal.service';
 })
 export class Home {
   private readonly _modalService = inject(ModalService);
+  private readonly _fileStore = inject(FileStore);
+
+  protected readonly files = this._fileStore.filesUploaded;
 
   onUploadFile(): void {
     this._modalService.open(SelectModal, { size: 'md', centered: true });
-
-    // const modalRef = this._modalService.open(DeleteModal, { size: 'md', centered: true });
-    // modalRef.componentInstance.fileName = signal('world.json'); 
   }
 }

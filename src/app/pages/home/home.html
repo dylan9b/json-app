@@ -3,7 +3,13 @@
   <article>
     <h1>Welcome!</h1>
     <p>Upload JSON files in a quick and efficient way.</p>
-    <p>5 files uploaded already</p>
+    @if (files().length) {
+
+    <p class="counter">{{ files().length }} file{{ files().length === 1 ? '' : 's' }} uploaded already</p>
+    } @else {
+    <p class="counter">No files uploaded yet</p>
+    }
+
     <app-button variant="primary" label="Upload file" (clickButton)="onUploadFile()"></app-button>
   </article>
 </section>
