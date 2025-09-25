@@ -8,7 +8,7 @@
   ></button>
 </div>
 <div class="modal-body">
-  Are you sure you want to delete the file «{{ fileName() }}»?
+  Are you sure you want to delete the file «{{ file().file.name }}»?
 </div>
 <div class="modal-footer">
   <app-button variant="secondary" label="Cancel" (clickButton)="onCancel()"></app-button>

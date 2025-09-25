@@ -5,9 +5,9 @@ export interface UploadedFileModel extends TableRowModel {
 }
 
 export interface FileState {
-  state: 'pending' | 'loading' | 'success' | 'error';
   filter: {
     page: number;
     pageSize: number;
   };
+  uploadedFiles: Record<UploadedFileModel['id'], UploadedFileModel>;
 }

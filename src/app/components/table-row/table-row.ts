@@ -28,9 +28,9 @@ export class TableRow {
     this.refreshFiles();
   }
 
-  onDeleteFile(fileName: string): void {
+  onDeleteFile(file: UploadedFileModel): void {
     const modalRef = this._modalService.open(DeleteModal, { size: 'md', centered: true });
-    modalRef.componentInstance.fileName = signal(fileName);
+    modalRef.componentInstance.file = signal(file);
   }
 
   // TODO: this is the responsibility of the local ngrx store component so that we keep track of the pagination filter done

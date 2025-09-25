@@ -4,5 +4,9 @@
     <app-button variant="primary" label="Upload file" (clickButton)="onUploadFile()"></app-button>
   </article>
 
+  @if(files().length) {
   <app-table-row [files]="files()"> </app-table-row>
+  } @else {
+  <ngb-alert [dismissible]="false"> <strong>Warning!</strong> No files uploaded yet. </ngb-alert>
+  }
 </section>

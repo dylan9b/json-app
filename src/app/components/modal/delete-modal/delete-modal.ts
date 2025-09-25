@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { Button } from '@components/button/button';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { UploadedFileModel } from 'app/store/files.state';
+import { FileStore } from 'app/store/files.store';
 
 @Component({
   selector: 'app-delete-modal',
@@ -11,12 +13,15 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteModal {
+  private readonly _fileStore = inject(FileStore);
+  
   protected readonly activeModal = inject(NgbActiveModal);
 
-  readonly fileName = input.required<string>();
+  readonly file = input.required<UploadedFileModel>();
 
   onConfirm(): void {
-    console.log('Item deleted');
+    this._fileStore.deleteFile(this.file());
+    this.activeModal.close();
   }
 
   onCancel(): void {

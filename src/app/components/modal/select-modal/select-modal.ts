@@ -66,10 +66,6 @@ export class SelectModal {
       return;
     }
 
-    // Save filename and content to localStorage
-    localStorage.setItem('uploadedFileName', uploadedFile.name);
-    localStorage.setItem('uploadedFileContent', content!);
-
     // Create a unique ID
     const uniqueFileId = this._fileUtilsService.generateUniqueId(name);
 
