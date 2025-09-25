@@ -23,9 +23,14 @@
       "<rootDir>/dist/"
     ],
     "globals": {
-      "ts-jest": {
-        "tsConfig": "<rootDir>/tsconfig.spec.json",
-        "stringifyContentPathRegex": "\\.html$"
+      "transform": {
+        "^.+\\.(ts|js|html)$": [
+          "ts-jest",
+          {
+            "tsconfig": "<rootDir>/tsconfig.spec.json",
+            "stringifyContentPathRegex": "\\.html$"
+          }
+        ]
       }
     }
   },
@@ -69,6 +74,7 @@
     "jest-environment-jsdom": "^30.1.2",
     "jest-preset-angular": "^15.0.1",
     "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.40.0"
   }

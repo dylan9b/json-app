@@ -27,8 +27,7 @@ export class FileUtilsService {
       const content = await file.text();
       JSON.parse(content); // Validate JSON
       return { isValid: true, content };
-    } catch (e) {
-      console.error('Invalid JSON file', e);
+    } catch {
       return { isValid: false };
     }
   }
