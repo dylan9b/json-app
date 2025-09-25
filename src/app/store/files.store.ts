@@ -1,4 +1,4 @@
-import { computed, inject } from '@angular/core';
+import { computed, effect, inject } from '@angular/core';
 import { FileState, UploadedFileModel } from './files.state';
 import {
   patchState,
@@ -10,6 +10,7 @@ import {
 } from '@ngrx/signals';
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { PlatformService } from '@services/platform.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const initialState: FileState = {
   pagination: {
@@ -82,18 +83,42 @@ export const FileStore = signalStore(
       }));
     },
   })),
-  withHooks((store, platformService = inject(PlatformService)) => ({
-    onInit(): void {
-      const uploadedFilesInLocalStorage = JSON.parse(
-        platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ?? '{}',
-      );
+  withHooks(
+    (
+      store,
+      platformService = inject(PlatformService),
+      router = inject(Router),
+      route = inject(ActivatedRoute),
+    ) => ({
+      onInit(): void {
+        const uploadedFilesInLocalStorage = JSON.parse(
+          platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ??
+            '{}',
+        );
 
-      patchState(store, (state) => ({
-        uploadedFiles: {
-          ...state.uploadedFiles,
-          ...uploadedFilesInLocalStorage,
-        },
-      }));
-    },
-  })),
+        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? 1;
+
+        patchState(store, (state) => ({
+          uploadedFiles: {
+            ...state.uploadedFiles,
+            ...uploadedFilesInLocalStorage,
+          },
+          pagination: {
+            ...state.pagination,
+            page: +pageFromParams,
+          },
+        }));
+
+        effect(() => {
+          const { page } = store.pagination();
+
+          router.navigate([], {
+            queryParams: {
+              page: page,
+            },
+          });
+        });
+      },
+    }),
+  ),
 );
