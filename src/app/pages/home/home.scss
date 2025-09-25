@@ -43,10 +43,11 @@ section {
     p {
       margin: 0;
       line-height: 1.75em;
+    }
 
-      &.counter {
-        color: $blue-01;
-      }
+    a {
+      text-decoration: none;
+      color: $blue-01;
     }
   }
 }

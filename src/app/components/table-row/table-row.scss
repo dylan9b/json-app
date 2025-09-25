@@ -16,6 +16,7 @@ section {
   }
 
   tr {
+    --bs-table-hover-bg: #{$blue-02};
     &.inValid {
       background-color: $red-02;
     }
