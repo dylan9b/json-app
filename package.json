@@ -32,7 +32,6 @@
     "@ng-bootstrap/ng-bootstrap": "^19.0.1",
     "@ngrx/operators": "^20.0.1",
     "@ngrx/signals": "^20.0.1",
-    "@ngrx/store": "^20.0.1",
     "@ngrx/store-devtools": "^20.0.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.6",
