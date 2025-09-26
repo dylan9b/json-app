@@ -2,7 +2,6 @@
   "name": "json-app",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "nx serve",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
@@ -92,6 +91,7 @@
     "@storybook/addon-docs": "^9.1.8",
     "@storybook/angular": "^9.1.8",
     "@types/jest": "^29.5.2",
+    "angular-cli-ghpages": "^2.0.3",
     "angular-eslint": "20.3.0",
     "eslint": "^9.35.0",
     "eslint-plugin-storybook": "^9.1.8",
