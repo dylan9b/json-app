@@ -43,7 +43,6 @@ export const FileStore = signalStore(
         patchState(store, (state) => ({
           ...state,
           uploadedFiles: {
-            ...state.uploadedFiles,
             [file.id]: {
               ...file,
               file: {
@@ -51,6 +50,7 @@ export const FileStore = signalStore(
                 name: file.file.name,
               },
             },
+            ...state.uploadedFiles,
           },
         }));
 
@@ -58,6 +58,8 @@ export const FileStore = signalStore(
           JSON_FILES_LOCAL_STORAGE,
           JSON.stringify(store.uploadedFiles()),
         );
+
+        router.navigate(['/files']);
       },
 
       deleteFile(file: UploadedFileModel): void {

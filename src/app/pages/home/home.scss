@@ -18,14 +18,14 @@ section {
   background-color: white;
   border: 1px solid $grey-03;
   border-radius: 0.75rem;
-  padding: 0 8em 2em;
+  padding: 0 8em 2rem;
 
   @media screen and (max-width: 768px) {
-    padding: 0 0em 2em;
+    padding: 0 0em 2rem;
   }
 
   img {
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
     aspect-ratio: 16/9;
   }
 
@@ -34,24 +34,24 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.5rem;
     color: $grey-01;
     text-align: center;
 
     @media screen and (max-width: 768px) {
-      padding: 0 1em;
+      padding: 0 1rem;
     }
 
     h1 {
       font-weight: 600;
-      font-size: 1.75em;
+      font-size: 1.75rem;
       margin: 0;
       line-height: 100%;
     }
 
     p {
       margin: 0;
-      line-height: 1.75em;
+      line-height: 1.75rem;
     }
 
     a {
