@@ -1,4 +1,4 @@
-## TechDocs
+# TechDocs
 This document serves as a guideline on how to use the app as well as highlighting assumptions done from my part.
 The app can be interacted with on this link --> https://dylan9b.github.io/json-app/#/home
 
@@ -7,6 +7,13 @@ The app can be interacted with on this link --> https://dylan9b.github.io/json-a
 - nx prettier
 - nx test
 - nx build
+
+## Screenshots
+### Code
+<img width="529" height="313" alt="image" src="https://github.com/user-attachments/assets/ba1b53cc-c9b7-47c0-ba5e-22fdf0b65e67" />
+<img width="589" height="434" alt="image" src="https://github.com/user-attachments/assets/617eab96-b24a-4148-9220-dd65fc02b071" />
+<img width="622" height="396" alt="image" src="https://github.com/user-attachments/assets/b9495f4b-4934-4661-8272-0ee6890ca9f3" />
+<img width="697" height="410" alt="image" src="https://github.com/user-attachments/assets/9a8d88c3-ba14-49b9-a9fe-cf6411f659ab" />
 
 ## Assumptions and Considerations
 - Since there is no mobile design, I adapted the same layout and also used table for list page but added ellipses to maintain structure.
