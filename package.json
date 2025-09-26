@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build json-app --prod --base-href \"/json-app/\"",
+    "build": "nx build json-app --prod --base-href \"/json-app/\" --skip-nx-cache",
     "watch": "nx build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
