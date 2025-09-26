@@ -58,8 +58,11 @@ export class SelectModal {
     const name = this.form.value.name;
     const description = this.form.value.description;
 
-    if (!this.form.valid || !uploadedFile) {
-      return; // Early exit if form invalid or no file selected
+    if (!uploadedFile) {
+      this.form.get('file')?.setErrors({
+        invalidFileType: { message: 'File is required' },
+      });
+      return;
     }
 
     // Validate the file (extension + JSON content)

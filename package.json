@@ -8,6 +8,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "deploy": "npx angular-cli-ghpages --dir=dist/json-app/browser",
     "lint": "nx lint",
     "prettier": "prettier --write \"src/**/*.{ts,html,scss}\"",
     "prettier:check": "prettier --check \"src/**/*.{ts,html,scss}\"",
