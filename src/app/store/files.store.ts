@@ -1,4 +1,4 @@
-import { computed, effect, inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { FileState, UploadedFileModel } from './files.state';
 import {
   patchState,
@@ -33,61 +33,72 @@ export const FileStore = signalStore(
         .filter((item) => !item.isDeleted),
     ),
   })),
-  withMethods((store, platformService = inject(PlatformService)) => ({
-    uploadFile(file: UploadedFileModel): void {
-      patchState(store, (state) => ({
-        ...state,
-        uploadedFiles: {
-          ...state.uploadedFiles,
-          [file.id]: {
-            ...file,
-            file: {
-              ...file.file,
-              name: file.file.name,
-            },
-          },
-        },
-      }));
-
-      platformService.localStorage?.setItem(
-        JSON_FILES_LOCAL_STORAGE,
-        JSON.stringify(store.uploadedFiles()),
-      );
-    },
-
-    deleteFile(file: UploadedFileModel): void {
-      patchState(store, (state) => ({
-        ...state,
-        uploadedFiles: {
-          ...state.uploadedFiles,
-          [file.id]: {
-            ...state.uploadedFiles[file.id],
-            isDeleted: true,
-          },
-        },
-      }));
-
-      platformService.localStorage?.setItem(
-        JSON_FILES_LOCAL_STORAGE,
-        JSON.stringify(store.uploadedFiles()),
-      );
-    },
-
-    updatePagination(pagination: Partial<FileState['pagination']>): void {
-      patchState(store, (state) => ({
-        ...state,
-        pagination: {
-          ...state.pagination,
-          ...pagination,
-        },
-      }));
-    },
-  })),
-  withHooks(
+  withMethods(
     (
       store,
       platformService = inject(PlatformService),
       router = inject(Router),
+    ) => ({
+      uploadFile(file: UploadedFileModel): void {
+        patchState(store, (state) => ({
+          ...state,
+          uploadedFiles: {
+            ...state.uploadedFiles,
+            [file.id]: {
+              ...file,
+              file: {
+                ...file.file,
+                name: file.file.name,
+              },
+            },
+          },
+        }));
+
+        platformService.localStorage?.setItem(
+          JSON_FILES_LOCAL_STORAGE,
+          JSON.stringify(store.uploadedFiles()),
+        );
+      },
+
+      deleteFile(file: UploadedFileModel): void {
+        patchState(store, (state) => ({
+          ...state,
+          uploadedFiles: {
+            ...state.uploadedFiles,
+            [file.id]: {
+              ...state.uploadedFiles[file.id],
+              isDeleted: true,
+            },
+          },
+        }));
+
+        platformService.localStorage?.setItem(
+          JSON_FILES_LOCAL_STORAGE,
+          JSON.stringify(store.uploadedFiles()),
+        );
+      },
+
+      updatePagination(pagination: Partial<FileState['pagination']>): void {
+        patchState(store, (state) => ({
+          ...state,
+          pagination: {
+            ...state.pagination,
+            ...pagination,
+          },
+        }));
+
+        router.navigate([], {
+          queryParams: {
+            page: store.pagination().page,
+          },
+        });
+      },
+    }),
+  ),
+  withHooks(
+    (
+      store,
+      platformService = inject(PlatformService),
       route = inject(ActivatedRoute),
     ) => ({
       onInit(): void {
@@ -96,7 +107,7 @@ export const FileStore = signalStore(
             '{}',
         );
 
-        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? 1;
+        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? '1';
 
         patchState(store, (state) => ({
           uploadedFiles: {
@@ -109,15 +120,15 @@ export const FileStore = signalStore(
           },
         }));
 
-        effect(() => {
-          const { page } = store.pagination();
+        // effect(() => {
+        //   const { page } = store.pagination();
 
-          router.navigate([], {
-            queryParams: {
-              page: page,
-            },
-          });
-        });
+        //   router.navigate([], {
+        //     queryParams: {
+        //       page: page,
+        //     },
+        //   });
+        // });
       },
     }),
   ),
