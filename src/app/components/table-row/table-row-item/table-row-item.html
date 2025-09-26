@@ -1,0 +1,38 @@
+<article [class.inValid]="!file().isValid">
+  <div class="file">
+    <img
+      src="assets/images/icon_file_upload.svg"
+      alt="File icon"
+      width="16"
+      height="16"
+    />
+    <span>
+      {{ file().file.name }}
+    </span>
+  </div>
+  <div class="file-name">
+    {{ file().name }}
+  </div>
+  <div class="file-description">{{ file().description }}</div>
+  <div [class.valid]="file().isValid" [class.inValid]="!file().isValid">
+    <span>
+      {{ file().isValid ? "Valid" : "Invalid" }}
+    </span>
+  </div>
+  <div class="file-remove">
+    <button
+      type="button"
+      (click)="onDeleteFile(file())"
+      (keydown.enter)="onDeleteFile(file())"
+      class="btn btn-link"
+      aria-label="Remove file"
+    >
+      <img
+        src="assets/images/icon_remove.svg"
+        alt="Remove file icon"
+        width="16"
+        height="16"
+      />
+    </button>
+  </div>
+</article>

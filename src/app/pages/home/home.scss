@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   background-color: $beige-01;
+  padding: 4rem;
 }
 
 section {
@@ -18,6 +19,10 @@ section {
   border: 1px solid $grey-03;
   border-radius: 0.75rem;
   padding: 0 8em 2em;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 0em 2em;
+  }
 
   img {
     margin-bottom: 2em;
@@ -32,6 +37,10 @@ section {
     gap: 0.5em;
     color: $grey-01;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 1em;
+    }
 
     h1 {
       font-weight: 600;

@@ -1,0 +1,86 @@
+@use "colors" as *;
+
+article {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 3.5rem;
+  color: $grey-01;
+  border-bottom: 1px solid $grey-03;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+  }
+
+  &:hover {
+    background-color: $blue-02;
+  }
+
+  &.inValid {
+    background-color: $red-02;
+
+    &:hover {
+      background-color: $blue-02;
+    }
+  }
+
+  div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline;
+
+    .validation {
+      color: white;
+      font-weight: 500;
+      font-size: 0.875rem;
+      border-radius: 0.25rem;
+      padding: 0.24rem 0.5rem;
+    }
+
+    &.valid {
+      span {
+        @extend .validation;
+        background-color: $green;
+      }
+    }
+
+    &.inValid {
+      span {
+        @extend .validation;
+        background-color: $red-01;
+      }
+    }
+
+    &.file {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      > span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 13rem;
+      }
+
+      &-remove {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          cursor: pointer;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

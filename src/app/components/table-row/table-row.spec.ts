@@ -49,7 +49,7 @@ describe('TableRow', () => {
 
   it('should display correct number of rows based on pagination', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const rows = compiled.querySelectorAll('tbody tr');
+    const rows = compiled.querySelectorAll('div app-table-row-item');
     expect(rows.length).toBe(1); // Only one file in mockFiles
   });
 });

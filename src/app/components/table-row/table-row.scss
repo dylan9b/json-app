@@ -1,91 +1,30 @@
 @use "colors" as *;
 
-:host {
-  --bs-body-bg: transparent;
-}
-
 section {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  thead {
-    th {
+  .header-container {
+    display: flex;
+    border-top: 1px solid $grey-03;
+    border-bottom: 1px solid $grey-03;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
+    span {
+      flex: 1;
+
+      display: flex;
+      align-items: center;
+
       background-color: $grey-04;
       font-weight: 800;
       padding: 0.5rem 1rem;
       height: 3.5rem;
-      vertical-align: middle;
-      &:first-of-type {
-        width: 20%;
-      }
-    }
-  }
-
-  tr {
-    --bs-table-hover-bg: #{$blue-02};
-    &.inValid {
-      background-color: $red-02;
-    }
-    td {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-
-      padding: 0.5rem 1rem;
-      min-height: 3.5rem;
-      vertical-align: middle;
-      color: $grey-01;
-
-      &.file {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        > span {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          max-width: 13rem;
-        }
-
-        &-name,
-        &-description {
-          max-width: 4rem;
-        }
-
-        &-remove {
-          cursor: pointer;
-          text-align: right;
-
-          button {
-            padding: 0;
-          }
-        }
-      }
-
-      .validation {
-        color: white;
-        font-weight: 500;
-        font-size: 0.875rem;
-        border-radius: 0.25rem;
-        padding: 0.24rem 0.5rem;
-      }
-
-      &.valid {
-        span {
-          @extend .validation;
-          background-color: $green;
-        }
-      }
-
-      &.inValid {
-        span {
-          @extend .validation;
-          background-color: $red-01;
-        }
-      }
     }
   }
 }
