@@ -73,9 +73,11 @@ describe('SelectModal', () => {
     expect(component['form'].get('file')?.errors).toBeNull();
   });
 
-  it('should not upload if form is invalid', async () => {
-    component['form'].get('file')?.setErrors({ required: true });
-    component['uploadedFileSignal'].set(mockFile);
+  it('should not upload if file is missing', async () => {
+    component['form']
+      .get('file')
+      ?.setErrors({ invalidFileType: { message: 'File is required' } });
+    component['uploadedFileSignal'].set(null);
 
     await component.onUpload();
 
