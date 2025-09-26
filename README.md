@@ -2,72 +2,12 @@
 This document serves as a guideline on how to use the app as well as highlighting assumptions done from my part.
 The app can be interacted with on this link --> https://dylan9b.github.io/json-app/#/home
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-# json-app
-
-# Available commands execute
-
-- nx lint
-- nx prettier
-- nx test
-- nx build
+## Available commands execute
+- npm run lint
+- npm run prettier
+- npm run test
+- npm run build
+- npm run storybook
 
 ## Screenshots
 ### Code
@@ -90,6 +30,8 @@ For more information on using the Angular CLI, including detailed command refere
 <img width="522" height="459" alt="image" src="https://github.com/user-attachments/assets/ca92d498-aebb-4bf6-a218-fbde29c46e7e" />
 <img width="582" height="737" alt="image" src="https://github.com/user-attachments/assets/2d3db80e-83ae-4887-a0e9-77388a200485" />
 
+### Storybook
+<img width="1895" height="610" alt="image" src="https://github.com/user-attachments/assets/6d718c0d-2778-452d-980e-a2683eddadbc" />
 
 #### Files Page
 <img width="1915" height="948" alt="image" src="https://github.com/user-attachments/assets/90f77425-eaa9-414b-ba47-3633a58b0f52" />
