@@ -1,4 +1,6 @@
-# JsonApp
+## TechDocs
+This document serves as a guideline on how to use the app as well as highlighting assumptions done from my part.
+The app can be interacted with on this link --> https://dylan9b.github.io/json-app/#/home
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
 
@@ -65,6 +67,7 @@ For more information on using the Angular CLI, including detailed command refere
 - nx lint
 - nx prettier
 - nx test
+- nx build
 
 # Assumptions and Considerations
 
