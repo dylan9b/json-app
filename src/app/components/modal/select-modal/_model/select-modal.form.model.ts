@@ -36,7 +36,7 @@ const validateDescription: ValidatorFn = (control): ValidationErrors | null => {
   const value = control.value;
 
   // Built-in errors first
-  if (!value) return { required: { message: 'Name is required' } };
+  if (!value) return { required: { message: 'Description is required' } };
   if (value.length > 128)
     return { maxlength: { message: 'Maximum length is 128' } };
 
