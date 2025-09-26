@@ -3,10 +3,11 @@ This document serves as a guideline on how to use the app as well as highlightin
 The app can be interacted with on this link --> https://dylan9b.github.io/json-app/#/home
 
 ## Available commands execute
-- nx lint
-- nx prettier
-- nx test
-- nx build
+- npm run lint
+- npm run prettier
+- npm run test
+- npm run build
+- npm run storybook
 
 ## Screenshots
 ### Code
@@ -29,6 +30,8 @@ The app can be interacted with on this link --> https://dylan9b.github.io/json-a
 <img width="522" height="459" alt="image" src="https://github.com/user-attachments/assets/ca92d498-aebb-4bf6-a218-fbde29c46e7e" />
 <img width="582" height="737" alt="image" src="https://github.com/user-attachments/assets/2d3db80e-83ae-4887-a0e9-77388a200485" />
 
+### Storybook
+<img width="1895" height="610" alt="image" src="https://github.com/user-attachments/assets/6d718c0d-2778-452d-980e-a2683eddadbc" />
 
 #### Files Page
 <img width="1915" height="948" alt="image" src="https://github.com/user-attachments/assets/90f77425-eaa9-414b-ba47-3633a58b0f52" />
