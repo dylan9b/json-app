@@ -4,7 +4,6 @@ import {
   computed,
   inject,
   input,
-  signal,
 } from '@angular/core';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { UploadedFileModel } from '@store/files.state';
