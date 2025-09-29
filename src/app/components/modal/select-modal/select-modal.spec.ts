@@ -100,4 +100,39 @@ describe('SelectModal', () => {
     component.onCancel();
     expect(activeModalMock.close).toHaveBeenCalled();
   });
+
+  it('should upload valid file successfully', async () => {
+    component['uploadedFileSignal'].set(mockFile);
+
+    await component.onUpload();
+
+    expect(fileUtilsMock.validateJsonFile).toHaveBeenCalledWith(mockFile);
+    expect(fileUtilsMock.generateUniqueId).toHaveBeenCalledWith('Test File');
+    expect(fileStoreMock.uploadFile).toHaveBeenCalledWith({
+      id: 'unique-id-123',
+      name: 'Test File',
+      description: 'Test Description',
+      file: mockFile,
+      isValid: true,
+      isDeleted: false,
+    });
+    expect(activeModalMock.close).toHaveBeenCalled();
+  });
+
+  it('should handle invalid file during upload', async () => {
+    const error = { invalidFileType: { message: 'Invalid file type' } };
+    fileUtilsMock.validateJsonFile.mockResolvedValueOnce({
+      isValid: false,
+      error,
+    } as ValidateJsonResult);
+
+    component['uploadedFileSignal'].set(mockFile);
+
+    await component.onUpload();
+
+    expect(fileUtilsMock.validateJsonFile).toHaveBeenCalledWith(mockFile);
+    expect(fileStoreMock.uploadFile).not.toHaveBeenCalled();
+    expect(activeModalMock.close).not.toHaveBeenCalled();
+    expect(component['form'].get('file')?.errors).toEqual(error);
+  });
 });

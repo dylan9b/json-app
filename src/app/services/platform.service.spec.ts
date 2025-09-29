@@ -52,4 +52,38 @@ describe('PlatformService', () => {
       expect(service.localStorage).toBeNull();
     });
   });
+
+  describe('window getter', () => {
+    describe('when platform is browser', () => {
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+          providers: [
+            { provide: PLATFORM_ID, useValue: 'browser' },
+            provideZonelessChangeDetection(),
+          ],
+        });
+        service = TestBed.inject(PlatformService);
+      });
+
+      it('should return window object', () => {
+        expect(service.window).toBe(window);
+      });
+    });
+
+    describe('when platform is server', () => {
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+          providers: [
+            { provide: PLATFORM_ID, useValue: 'server' },
+            provideZonelessChangeDetection(),
+          ],
+        });
+        service = TestBed.inject(PlatformService);
+      });
+
+      it('should return null', () => {
+        expect(service.window).toBeNull();
+      });
+    });
+  });
 });

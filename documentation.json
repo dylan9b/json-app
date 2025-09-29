@@ -440,12 +440,12 @@
     "classes": [
         {
             "name": "SelectModalFormControl",
-            "id": "class-SelectModalFormControl-a381e51e709b1bdcc1c661eecf70ee002cd5ad7adeaf9d549d468c4920c15ee871f5080dda2229a5569f47cdabfa30498b37dbcdd9d8cb9b78b215c62a68a269",
+            "id": "class-SelectModalFormControl-52616ab77a81329a4c88a70645459e129c585a3ffc038213fc97d08ce0f715b8de5c9a2873c7adfa691437fdd4c02e1831c7963811131486405eb1ac15ce1ab5",
             "file": "src/app/components/modal/select-modal/_model/select-modal.form.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';\n\nconst githubUsername = 'test123';\n\nconst validateName: ValidatorFn = (control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Name is required' } };\n  if (value.length < 1)\n    return { minlength: { message: 'Minimum length is 1' } };\n  if (value.length > 32)\n    return { maxlength: { message: 'Maximum length is 32' } };\n\n  // Custom validations\n  if (typeof value !== 'string')\n    return { invalidType: { message: 'Value must be a string' } };\n  if (!/^[A-Za-z0-9_-]+$/.test(value))\n    return {\n      invalidCharacters: {\n        message:\n          'Only alphanumeric characters, underscores, and hyphens are allowed',\n      },\n    };\n  if (!value.includes(`42c-${githubUsername}`))\n    return {\n      missingSubstring: {\n        message: `Value must include the substring '42c-${githubUsername}'`,\n      },\n    };\n\n  return null;\n};\n\nconst validateDescription: ValidatorFn = (control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Name is required' } };\n  if (value.length > 128)\n    return { maxlength: { message: 'Maximum length is 128' } };\n\n  if (value.includes(`42c-${githubUsername}`))\n    return { forbiddenSubstring: true };\n  return null;\n};\n\nexport class SelectModalFormControl {\n  constructor(\n    public file: FormControl = new FormControl(null),\n    public name: FormControl = new FormControl(null, [validateName]),\n    public description: FormControl = new FormControl(null, [\n      validateDescription,\n    ]),\n  ) {}\n}\n",
+            "sourceCode": "import { FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';\n\nconst githubUsername = 'test123';\n\nconst validateName: ValidatorFn = (control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Name is required' } };\n  if (value.length < 1)\n    return { minlength: { message: 'Minimum length is 1' } };\n  if (value.length > 32)\n    return { maxlength: { message: 'Maximum length is 32' } };\n\n  // Custom validations\n  if (typeof value !== 'string')\n    return { invalidType: { message: 'Value must be a string' } };\n  if (!/^[A-Za-z0-9_-]+$/.test(value))\n    return {\n      invalidCharacters: {\n        message:\n          'Only alphanumeric characters, underscores, and hyphens are allowed',\n      },\n    };\n  if (!value.includes(`42c-${githubUsername}`))\n    return {\n      missingSubstring: {\n        message: `Value must include the substring '42c-${githubUsername}'`,\n      },\n    };\n\n  return null;\n};\n\nconst validateDescription: ValidatorFn = (control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Description is required' } };\n  if (value.length > 128)\n    return { maxlength: { message: 'Maximum length is 128' } };\n\n  if (value.includes(`42c-${githubUsername}`))\n    return { forbiddenSubstring: true };\n  return null;\n};\n\nexport class SelectModalFormControl {\n  constructor(\n    public file: FormControl = new FormControl(null),\n    public name: FormControl = new FormControl(null, [validateName]),\n    public description: FormControl = new FormControl(null, [\n      validateDescription,\n    ]),\n  ) {}\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -865,11 +865,11 @@
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">Confirm</h4>\n  <button\n    type=\"button\"\n    class=\"btn-close\"\n    aria-label=\"Close\"\n    (click)=\"activeModal.dismiss('Cross click')\"\n  ></button>\n</div>\n<div class=\"modal-body\">\n  Are you sure you want to delete the file «{{ file().file.name }}»?\n</div>\n<div class=\"modal-footer\">\n  <app-button\n    variant=\"secondary\"\n    label=\"Cancel\"\n    (clickButton)=\"onCancel()\"\n  ></app-button>\n  <app-button\n    variant=\"primary\"\n    label=\"Confirm\"\n    (clickButton)=\"onConfirm()\"\n  ></app-button>\n</div>\n"
+            "templateData": "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">Confirm file deleting</h4>\n  <button\n    type=\"button\"\n    class=\"btn-close\"\n    aria-label=\"Close\"\n    (click)=\"activeModal.dismiss('Cross click')\"\n  ></button>\n</div>\n<div class=\"modal-body\">\n  Are you sure you want to delete the file «{{ file().file.name }}»?\n</div>\n<div class=\"modal-footer\">\n  <app-button\n    variant=\"secondary\"\n    label=\"Cancel\"\n    (clickButton)=\"onCancel()\"\n  ></app-button>\n  <app-button\n    variant=\"primary\"\n    label=\"Confirm\"\n    (clickButton)=\"onConfirm()\"\n  ></app-button>\n</div>\n"
         },
         {
             "name": "Files",
-            "id": "component-Files-e6e9c7a2e142e6f17dc151b4f0c4c3fbf8e138d87ca1a3b188fce4a0156557df9371f25b96888fda794ee54751a1944eccfaad9cceda8dfaf87f86b8c0636524",
+            "id": "component-Files-bf3458f4e75ee6aa8bc95a7574f3cd3f5d9e72cf845ac8ca87cbea933dac6a7d5a5fd5eff122bd4bb86774e68837102b1e5c5ae21f58e15cda2662d715b2296a",
             "file": "src/app/pages/files/files.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -897,7 +897,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 20,
                     "modifierKind": [
                         123,
                         148
@@ -912,7 +912,22 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 19,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "_router",
+                    "defaultValue": "inject(Router)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
                     "modifierKind": [
                         123,
                         148
@@ -927,7 +942,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 23,
                     "modifierKind": [
                         124,
                         148
@@ -941,7 +956,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -965,17 +980,25 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\nimport { Button } from '@components/button/button';\nimport { SelectModal } from '@components/modal/select-modal/select-modal';\nimport { TableRow } from '@components/table-row/table-row';\nimport { NgbAlert } from '@ng-bootstrap/ng-bootstrap';\nimport { ModalService } from '@services/modal.service';\nimport { FileStore } from '@store/files.store';\n\n@Component({\n  selector: 'app-files',\n  imports: [TableRow, Button, NgbAlert],\n  templateUrl: './files.html',\n  styleUrl: './files.scss',\n  standalone: true,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class Files {\n  private readonly _modalService = inject(ModalService);\n  private readonly _fileStore = inject(FileStore);\n\n  protected readonly filesSignal = this._fileStore.filesUploaded;\n\n  onUploadFile(): void {\n    this._modalService.open(SelectModal, { size: 'md', centered: true });\n  }\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { Button } from '@components/button/button';\nimport { SelectModal } from '@components/modal/select-modal/select-modal';\nimport { TableRow } from '@components/table-row/table-row';\nimport { NgbAlert } from '@ng-bootstrap/ng-bootstrap';\nimport { ModalService } from '@services/modal.service';\nimport { FileStore } from '@store/files.store';\n\n@Component({\n  selector: 'app-files',\n  imports: [TableRow, Button, NgbAlert],\n  templateUrl: './files.html',\n  styleUrl: './files.scss',\n  standalone: true,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class Files {\n  private readonly _modalService = inject(ModalService);\n  private readonly _fileStore = inject(FileStore);\n  private readonly _router = inject(Router);\n\n  protected readonly filesSignal = this._fileStore.filesUploaded;\n\n  onUploadFile(): void {\n    this._modalService.open(SelectModal, { size: 'md', centered: true });\n  }\n\n  constructor() {\n    this._router.navigate([], {\n      queryParams: {\n        page: 1,\n      },\n    });\n  }\n}\n",
             "styleUrl": "./files.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 27
+            },
             "extends": [],
             "templateData": "<section>\n  <article>\n    <h1>\n      {{ filesSignal().length }} file{{ filesSignal().length === 1 ? \"\" : \"s\" }}\n    </h1>\n    <app-button\n      variant=\"primary\"\n      label=\"Upload file\"\n      (clickButton)=\"onUploadFile()\"\n    ></app-button>\n  </article>\n\n  @if (filesSignal().length) {\n    <app-table-row [files]=\"filesSignal()\"> </app-table-row>\n  } @else {\n    <ngb-alert [dismissible]=\"false\">\n      <strong>Warning!</strong> No files uploaded yet.\n    </ngb-alert>\n  }\n</section>\n"
         },
         {
             "name": "Home",
-            "id": "component-Home-348d1a11a8ea6891dd651a66b075066fad80506e0376a154da8a28fa2fee48feef83f1ac4f43484ac4a0b039c71474eda5c6dc8cb09eeff0ce9e850e882fc3aa",
+            "id": "component-Home-7f99451f73bc003dd55774477888e2974e633083403ce98cee4c50f3a1711709367485c390714476998483196ad8a034904bbc577409deddb556d14bd5c54f13",
             "file": "src/app/pages/home/home.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -1025,6 +1048,21 @@
                     ]
                 },
                 {
+                    "name": "_router",
+                    "defaultValue": "inject(Router)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
                     "name": "filesSignal",
                     "defaultValue": "this._fileStore.filesUploaded",
                     "deprecated": false,
@@ -1033,7 +1071,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 21,
                     "modifierKind": [
                         124,
                         148
@@ -1047,7 +1085,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1068,11 +1106,19 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\nimport { RouterLink } from '@angular/router';\nimport { Button } from '@components/button/button';\nimport { SelectModal } from '@components/modal/select-modal/select-modal';\nimport { ModalService } from '@services/modal.service';\nimport { FileStore } from '@store/files.store';\n\n@Component({\n  selector: 'app-home',\n  imports: [Button, RouterLink],\n  templateUrl: './home.html',\n  styleUrl: './home.scss',\n  standalone: true,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class Home {\n  private readonly _modalService = inject(ModalService);\n  private readonly _fileStore = inject(FileStore);\n\n  protected readonly filesSignal = this._fileStore.filesUploaded;\n\n  onUploadFile(): void {\n    this._modalService.open(SelectModal, { size: 'md', centered: true });\n  }\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, inject } from '@angular/core';\nimport { Router, RouterLink } from '@angular/router';\nimport { Button } from '@components/button/button';\nimport { SelectModal } from '@components/modal/select-modal/select-modal';\nimport { ModalService } from '@services/modal.service';\nimport { FileStore } from '@store/files.store';\n\n@Component({\n  selector: 'app-home',\n  imports: [Button, RouterLink],\n  templateUrl: './home.html',\n  styleUrl: './home.scss',\n  standalone: true,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class Home {\n  private readonly _modalService = inject(ModalService);\n  private readonly _fileStore = inject(FileStore);\n  private readonly _router = inject(Router);\n\n  protected readonly filesSignal = this._fileStore.filesUploaded;\n\n  onUploadFile(): void {\n    this._modalService.open(SelectModal, { size: 'md', centered: true });\n  }\n\n  constructor() {\n    this._router.navigate([], {\n      queryParams: {\n        page: null,\n      },\n    });\n  }\n}\n",
             "styleUrl": "./home.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 25
+            },
             "extends": [],
             "templateData": "<section>\n  <img\n    src=\"assets/images/card-img.svg\"\n    alt=\"Welcome image\"\n    width=\"300\"\n    height=\"300\"\n  />\n  <article>\n    <h1>Welcome!</h1>\n    <p>Upload JSON files in a quick and efficient way.</p>\n    <a routerLink=\"/files\">\n      @if (filesSignal().length) {\n        {{ filesSignal().length }} file{{\n          filesSignal().length === 1 ? \"\" : \"s\"\n        }}\n        uploaded already\n      } @else {\n        No files uploaded yet\n      }\n    </a>\n\n    <app-button\n      variant=\"primary\"\n      label=\"Upload file\"\n      (clickButton)=\"onUploadFile()\"\n    ></app-button>\n  </article>\n</section>\n"
         },
@@ -1186,7 +1232,7 @@
         },
         {
             "name": "SelectModal",
-            "id": "component-SelectModal-efc075372f9d4900f00aa75f8ec8562c8db1a2a3f0986b8d4d3b925bc4599a119262b65974b0f8ff25641f9a1ec5443d5c01d9fb5f0748c6deaa5ae817695fdf",
+            "id": "component-SelectModal-efe80a06f17574403d16e5b1a81f5a6fc027223d214bdb3f4b034a356e7c891c779ea865bcf1161c27d768ee282f58765d99b9e7984936c6489d452d59ac770a",
             "file": "src/app/components/modal/select-modal/select-modal.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -1329,7 +1375,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 93,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1405,7 +1451,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  inject,\n  signal,\n} from '@angular/core';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\nimport { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';\nimport { SelectModalFormControl } from './_model/select-modal.form.model';\nimport { Button } from '@components/button/button';\nimport { FileStore } from '@store/files.store';\nimport { UploadedFileModel } from '@store/files.state';\nimport { FileUtilsService } from '@services/file-utils.service';\n\n@Component({\n  selector: 'app-select-modal',\n  imports: [ReactiveFormsModule, Button],\n  templateUrl: './select-modal.html',\n  styleUrl: './select-modal.scss',\n  standalone: true,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectModal {\n  private readonly _formBuilder = inject(FormBuilder);\n  private readonly _fileStore = inject(FileStore);\n  private readonly _fileUtilsService = inject(FileUtilsService);\n\n  protected isFormSubmitted = false;\n  protected form!: FormGroup;\n  protected readonly activeModal = inject(NgbActiveModal);\n\n  protected readonly objectKeys = Object.keys;\n\n  protected uploadedFileSignal = signal<File | null>(null);\n\n  private populateForm(): FormGroup {\n    return this._formBuilder.group(new SelectModalFormControl());\n  }\n\n  constructor() {\n    this.form = this.populateForm();\n  }\n\n  onFileChange(event: Event) {\n    const input = event.target as HTMLInputElement;\n    if (input.files && input.files.length > 0) {\n      const file = input.files[0];\n\n      this.uploadedFileSignal.set(file);\n      this.form.get('file')?.setErrors(null);\n    }\n  }\n\n  async onUpload(): Promise<void> {\n    this.isFormSubmitted = true;\n\n    const uploadedFile = this.uploadedFileSignal();\n    const name = this.form.value.name;\n    const description = this.form.value.description;\n\n    if (!this.form.valid || !uploadedFile) {\n      return; // Early exit if form invalid or no file selected\n    }\n\n    // Validate the file (extension + JSON content)\n    const { isValid, error } =\n      await this._fileUtilsService.validateJsonFile(uploadedFile);\n\n    if (error) {\n      this.form.get('file')?.setErrors(error);\n      return;\n    }\n\n    // Create a unique ID\n    const uniqueFileId = this._fileUtilsService.generateUniqueId(name);\n\n    // Build file model\n    const fileModel: UploadedFileModel = {\n      id: uniqueFileId,\n      name,\n      description,\n      file: uploadedFile,\n      isValid,\n      isDeleted: false,\n    };\n\n    // Upload\n    this._fileStore.uploadFile(fileModel);\n\n    this.activeModal.close();\n  }\n\n  onCancel(): void {\n    this.activeModal.close();\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  inject,\n  signal,\n} from '@angular/core';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\nimport { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';\nimport { SelectModalFormControl } from './_model/select-modal.form.model';\nimport { Button } from '@components/button/button';\nimport { FileStore } from '@store/files.store';\nimport { UploadedFileModel } from '@store/files.state';\nimport { FileUtilsService } from '@services/file-utils.service';\n\n@Component({\n  selector: 'app-select-modal',\n  imports: [ReactiveFormsModule, Button],\n  templateUrl: './select-modal.html',\n  styleUrl: './select-modal.scss',\n  standalone: true,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectModal {\n  private readonly _formBuilder = inject(FormBuilder);\n  private readonly _fileStore = inject(FileStore);\n  private readonly _fileUtilsService = inject(FileUtilsService);\n\n  protected isFormSubmitted = false;\n  protected form!: FormGroup;\n  protected readonly activeModal = inject(NgbActiveModal);\n\n  protected readonly objectKeys = Object.keys;\n\n  protected uploadedFileSignal = signal<File | null>(null);\n\n  private populateForm(): FormGroup {\n    return this._formBuilder.group(new SelectModalFormControl());\n  }\n\n  constructor() {\n    this.form = this.populateForm();\n  }\n\n  onFileChange(event: Event) {\n    const input = event.target as HTMLInputElement;\n    if (input.files && input.files.length > 0) {\n      const file = input.files[0];\n\n      this.uploadedFileSignal.set(file);\n      this.form.get('file')?.setErrors(null);\n    }\n  }\n\n  async onUpload(): Promise<void> {\n    this.isFormSubmitted = true;\n\n    const uploadedFile = this.uploadedFileSignal();\n    const name = this.form.value.name;\n    const description = this.form.value.description;\n\n    if (!uploadedFile) {\n      this.form.get('file')?.setErrors({\n        invalidFileType: { message: 'File is required' },\n      });\n      return;\n    }\n\n    // Validate the file (extension + JSON content)\n    const { isValid, error } =\n      await this._fileUtilsService.validateJsonFile(uploadedFile);\n\n    if (error) {\n      this.form.get('file')?.setErrors(error);\n      return;\n    }\n\n    // Create a unique ID\n    const uniqueFileId = this._fileUtilsService.generateUniqueId(name);\n\n    // Build file model\n    const fileModel: UploadedFileModel = {\n      id: uniqueFileId,\n      name,\n      description,\n      file: uploadedFile,\n      isValid,\n      isDeleted: false,\n    };\n\n    // Upload\n    this._fileStore.uploadFile(fileModel);\n\n    this.activeModal.close();\n  }\n\n  onCancel(): void {\n    this.activeModal.close();\n  }\n}\n",
             "styleUrl": "./select-modal.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1419,7 +1465,7 @@
                 "line": 38
             },
             "extends": [],
-            "templateData": "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">Select file</h4>\n  <button\n    type=\"button\"\n    class=\"btn-close\"\n    aria-label=\"Close\"\n    (click)=\"activeModal.dismiss('Cross click')\"\n  ></button>\n</div>\n<div class=\"modal-body\">\n  <form [formGroup]=\"form\">\n    <!-- FILE -->\n    <fieldset>\n      <label for=\"file\" class=\"sr-only\">Choose file</label>\n      <input\n        id=\"file\"\n        type=\"file\"\n        (change)=\"onFileChange($event)\"\n        accept=\".json,application/json\"\n      />\n\n      @if (form.get(\"file\")?.errors && isFormSubmitted) {\n        <small class=\"error\">\n          @for (key of objectKeys(form.get(\"file\")?.errors ?? {}); track key) {\n            {{ form.get(\"file\")?.errors?.[key]?.message }}\n          }\n        </small>\n      }\n    </fieldset>\n\n    <!-- NAME -->\n    <fieldset>\n      <label for=\"name\" class=\"sr-only\">Name</label>\n      <input id=\"name\" type=\"text\" formControlName=\"name\" placeholder=\"Name\" />\n\n      @if (form.get(\"name\")?.errors && isFormSubmitted) {\n        <small class=\"error\">\n          @for (key of objectKeys(form.get(\"name\")?.errors ?? {}); track key) {\n            {{ form.get(\"name\")?.errors?.[key]?.message }}\n          }\n        </small>\n      }\n    </fieldset>\n\n    <!-- DESCRIPTION -->\n    <fieldset>\n      <label for=\"description\" class=\"sr-only\">Description</label>\n      <input\n        type=\"text\"\n        formControlName=\"description\"\n        placeholder=\"Description\"\n      />\n\n      @if (form.get(\"description\")?.errors && isFormSubmitted) {\n        <small class=\"error\">\n          @for (\n            key of objectKeys(form.get(\"description\")?.errors ?? {});\n            track key\n          ) {\n            {{ form.get(\"description\")?.errors?.[key]?.message }}\n          }\n        </small>\n      }\n    </fieldset>\n  </form>\n</div>\n<div class=\"modal-footer\">\n  <app-button\n    variant=\"secondary\"\n    label=\"Cancel\"\n    (clickButton)=\"onCancel()\"\n  ></app-button>\n  <app-button\n    variant=\"primary\"\n    label=\"Upload\"\n    (clickButton)=\"onUpload()\"\n  ></app-button>\n</div>\n"
+            "templateData": "<div class=\"modal-header\">\n  <h4 class=\"modal-title\">Select file</h4>\n  <button\n    type=\"button\"\n    class=\"btn-close\"\n    aria-label=\"Close\"\n    (click)=\"activeModal.dismiss('Cross click')\"\n  ></button>\n</div>\n<div class=\"modal-body\">\n  <form [formGroup]=\"form\">\n    <!-- FILE -->\n    <fieldset class=\"file-upload\">\n      <label for=\"file\" class=\"sr-only\">Choose file</label>\n      <input\n        id=\"file\"\n        type=\"file\"\n        (change)=\"onFileChange($event)\"\n        accept=\".json,application/json\"\n      />\n      @if (form.get(\"file\")?.errors && isFormSubmitted) {\n        <small class=\"error\">\n          @for (key of objectKeys(form.get(\"file\")?.errors ?? {}); track key) {\n            {{ form.get(\"file\")?.errors?.[key]?.message }}\n          }\n        </small>\n      }\n    </fieldset>\n\n    <!-- NAME -->\n    <fieldset>\n      <label for=\"name\" class=\"sr-only\">Name</label>\n      <input id=\"name\" type=\"text\" formControlName=\"name\" placeholder=\"Name\" />\n\n      @if (form.get(\"name\")?.errors && isFormSubmitted) {\n        <small class=\"error\">\n          @for (key of objectKeys(form.get(\"name\")?.errors ?? {}); track key) {\n            {{ form.get(\"name\")?.errors?.[key]?.message }}\n          }\n        </small>\n      }\n    </fieldset>\n\n    <!-- DESCRIPTION -->\n    <fieldset>\n      <label for=\"description\" class=\"sr-only\">Description</label>\n      <input\n        type=\"text\"\n        formControlName=\"description\"\n        placeholder=\"Description\"\n      />\n\n      @if (form.get(\"description\")?.errors && isFormSubmitted) {\n        <small class=\"error\">\n          @for (\n            key of objectKeys(form.get(\"description\")?.errors ?? {});\n            track key\n          ) {\n            {{ form.get(\"description\")?.errors?.[key]?.message }}\n          }\n        </small>\n      }\n    </fieldset>\n  </form>\n</div>\n<div class=\"modal-footer\">\n  <app-button\n    variant=\"secondary\"\n    label=\"Cancel\"\n    (clickButton)=\"onCancel()\"\n  ></app-button>\n  <app-button\n    variant=\"primary\"\n    label=\"Upload\"\n    (clickButton)=\"onUpload()\"\n  ></app-button>\n</div>\n"
         },
         {
             "name": "TableRow",
@@ -1682,7 +1728,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideZonelessChangeDetection(),\n    provideRouter(routes),\n    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),\n  ],\n}"
+                "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideZonelessChangeDetection(),\n    provideRouter(routes, withHashLocation()),\n    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),\n  ],\n}"
             },
             {
                 "name": "FileStore",
@@ -1692,7 +1738,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "signalStore(\n  { providedIn: 'root' },\n  withDevtools('files'),\n  withState(initialState),\n  withComputed((state) => ({\n    filesUploaded: computed(() =>\n      Object.keys(state.uploadedFiles())\n        .map((key) => state.uploadedFiles()[key])\n        .filter((item) => !item.isDeleted),\n    ),\n  })),\n  withMethods((store, platformService = inject(PlatformService)) => ({\n    uploadFile(file: UploadedFileModel): void {\n      patchState(store, (state) => ({\n        ...state,\n        uploadedFiles: {\n          ...state.uploadedFiles,\n          [file.id]: {\n            ...file,\n            file: {\n              ...file.file,\n              name: file.file.name,\n            },\n          },\n        },\n      }));\n\n      platformService.localStorage?.setItem(\n        JSON_FILES_LOCAL_STORAGE,\n        JSON.stringify(store.uploadedFiles()),\n      );\n    },\n\n    deleteFile(file: UploadedFileModel): void {\n      patchState(store, (state) => ({\n        ...state,\n        uploadedFiles: {\n          ...state.uploadedFiles,\n          [file.id]: {\n            ...state.uploadedFiles[file.id],\n            isDeleted: true,\n          },\n        },\n      }));\n\n      platformService.localStorage?.setItem(\n        JSON_FILES_LOCAL_STORAGE,\n        JSON.stringify(store.uploadedFiles()),\n      );\n    },\n\n    updatePagination(pagination: Partial<FileState['pagination']>): void {\n      patchState(store, (state) => ({\n        ...state,\n        pagination: {\n          ...state.pagination,\n          ...pagination,\n        },\n      }));\n    },\n  })),\n  withHooks(\n    (\n      store,\n      platformService = inject(PlatformService),\n      router = inject(Router),\n      route = inject(ActivatedRoute),\n    ) => ({\n      onInit(): void {\n        const uploadedFilesInLocalStorage = JSON.parse(\n          platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ??\n            '{}',\n        );\n\n        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? 1;\n\n        patchState(store, (state) => ({\n          uploadedFiles: {\n            ...state.uploadedFiles,\n            ...uploadedFilesInLocalStorage,\n          },\n          pagination: {\n            ...state.pagination,\n            page: +pageFromParams,\n          },\n        }));\n\n        effect(() => {\n          const { page } = store.pagination();\n\n          router.navigate([], {\n            queryParams: {\n              page: page,\n            },\n          });\n        });\n      },\n    }),\n  ),\n)"
+                "defaultValue": "signalStore(\n  { providedIn: 'root' },\n  withDevtools('files'),\n  withState(initialState),\n  withComputed((state) => ({\n    filesUploaded: computed(() =>\n      Object.keys(state.uploadedFiles())\n        .map((key) => state.uploadedFiles()[key])\n        .filter((item) => !item.isDeleted),\n    ),\n  })),\n  withMethods(\n    (\n      store,\n      platformService = inject(PlatformService),\n      router = inject(Router),\n    ) => ({\n      uploadFile(file: UploadedFileModel): void {\n        patchState(store, (state) => ({\n          ...state,\n          uploadedFiles: {\n            [file.id]: {\n              ...file,\n              file: {\n                ...file.file,\n                name: file.file.name,\n              },\n            },\n            ...state.uploadedFiles,\n          },\n        }));\n\n        platformService.localStorage?.setItem(\n          JSON_FILES_LOCAL_STORAGE,\n          JSON.stringify(store.uploadedFiles()),\n        );\n\n        router.navigate(['/files']);\n      },\n\n      deleteFile(file: UploadedFileModel): void {\n        patchState(store, (state) => ({\n          ...state,\n          uploadedFiles: {\n            ...state.uploadedFiles,\n            [file.id]: {\n              ...state.uploadedFiles[file.id],\n              isDeleted: true,\n            },\n          },\n        }));\n\n        platformService.localStorage?.setItem(\n          JSON_FILES_LOCAL_STORAGE,\n          JSON.stringify(store.uploadedFiles()),\n        );\n      },\n\n      updatePagination(pagination: Partial<FileState['pagination']>): void {\n        patchState(store, (state) => ({\n          ...state,\n          pagination: {\n            ...state.pagination,\n            ...pagination,\n          },\n        }));\n\n        router.navigate([], {\n          queryParams: {\n            page: store.pagination().page,\n          },\n        });\n      },\n    }),\n  ),\n  withHooks(\n    (\n      store,\n      platformService = inject(PlatformService),\n      route = inject(ActivatedRoute),\n    ) => ({\n      onInit(): void {\n        const uploadedFilesInLocalStorage = JSON.parse(\n          platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ??\n            '{}',\n        );\n\n        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? '1';\n\n        patchState(store, (state) => ({\n          uploadedFiles: {\n            ...state.uploadedFiles,\n            ...uploadedFilesInLocalStorage,\n          },\n          pagination: {\n            ...state.pagination,\n            page: +pageFromParams,\n          },\n        }));\n\n        // effect(() => {\n        //   const { page } = store.pagination();\n\n        //   router.navigate([], {\n        //     queryParams: {\n        //       page: page,\n        //     },\n        //   });\n        // });\n      },\n    }),\n  ),\n)"
             },
             {
                 "name": "githubUsername",
@@ -1752,7 +1798,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ValidatorFn",
-                "defaultValue": "(control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Name is required' } };\n  if (value.length > 128)\n    return { maxlength: { message: 'Maximum length is 128' } };\n\n  if (value.includes(`42c-${githubUsername}`))\n    return { forbiddenSubstring: true };\n  return null;\n}"
+                "defaultValue": "(control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Description is required' } };\n  if (value.length > 128)\n    return { maxlength: { message: 'Maximum length is 128' } };\n\n  if (value.includes(`42c-${githubUsername}`))\n    return { forbiddenSubstring: true };\n  return null;\n}"
             },
             {
                 "name": "validateName",
@@ -1778,7 +1824,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideZonelessChangeDetection(),\n    provideRouter(routes),\n    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),\n  ],\n}"
+                    "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideZonelessChangeDetection(),\n    provideRouter(routes, withHashLocation()),\n    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),\n  ],\n}"
                 }
             ],
             "src/app/store/files.store.ts": [
@@ -1790,7 +1836,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "signalStore(\n  { providedIn: 'root' },\n  withDevtools('files'),\n  withState(initialState),\n  withComputed((state) => ({\n    filesUploaded: computed(() =>\n      Object.keys(state.uploadedFiles())\n        .map((key) => state.uploadedFiles()[key])\n        .filter((item) => !item.isDeleted),\n    ),\n  })),\n  withMethods((store, platformService = inject(PlatformService)) => ({\n    uploadFile(file: UploadedFileModel): void {\n      patchState(store, (state) => ({\n        ...state,\n        uploadedFiles: {\n          ...state.uploadedFiles,\n          [file.id]: {\n            ...file,\n            file: {\n              ...file.file,\n              name: file.file.name,\n            },\n          },\n        },\n      }));\n\n      platformService.localStorage?.setItem(\n        JSON_FILES_LOCAL_STORAGE,\n        JSON.stringify(store.uploadedFiles()),\n      );\n    },\n\n    deleteFile(file: UploadedFileModel): void {\n      patchState(store, (state) => ({\n        ...state,\n        uploadedFiles: {\n          ...state.uploadedFiles,\n          [file.id]: {\n            ...state.uploadedFiles[file.id],\n            isDeleted: true,\n          },\n        },\n      }));\n\n      platformService.localStorage?.setItem(\n        JSON_FILES_LOCAL_STORAGE,\n        JSON.stringify(store.uploadedFiles()),\n      );\n    },\n\n    updatePagination(pagination: Partial<FileState['pagination']>): void {\n      patchState(store, (state) => ({\n        ...state,\n        pagination: {\n          ...state.pagination,\n          ...pagination,\n        },\n      }));\n    },\n  })),\n  withHooks(\n    (\n      store,\n      platformService = inject(PlatformService),\n      router = inject(Router),\n      route = inject(ActivatedRoute),\n    ) => ({\n      onInit(): void {\n        const uploadedFilesInLocalStorage = JSON.parse(\n          platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ??\n            '{}',\n        );\n\n        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? 1;\n\n        patchState(store, (state) => ({\n          uploadedFiles: {\n            ...state.uploadedFiles,\n            ...uploadedFilesInLocalStorage,\n          },\n          pagination: {\n            ...state.pagination,\n            page: +pageFromParams,\n          },\n        }));\n\n        effect(() => {\n          const { page } = store.pagination();\n\n          router.navigate([], {\n            queryParams: {\n              page: page,\n            },\n          });\n        });\n      },\n    }),\n  ),\n)"
+                    "defaultValue": "signalStore(\n  { providedIn: 'root' },\n  withDevtools('files'),\n  withState(initialState),\n  withComputed((state) => ({\n    filesUploaded: computed(() =>\n      Object.keys(state.uploadedFiles())\n        .map((key) => state.uploadedFiles()[key])\n        .filter((item) => !item.isDeleted),\n    ),\n  })),\n  withMethods(\n    (\n      store,\n      platformService = inject(PlatformService),\n      router = inject(Router),\n    ) => ({\n      uploadFile(file: UploadedFileModel): void {\n        patchState(store, (state) => ({\n          ...state,\n          uploadedFiles: {\n            [file.id]: {\n              ...file,\n              file: {\n                ...file.file,\n                name: file.file.name,\n              },\n            },\n            ...state.uploadedFiles,\n          },\n        }));\n\n        platformService.localStorage?.setItem(\n          JSON_FILES_LOCAL_STORAGE,\n          JSON.stringify(store.uploadedFiles()),\n        );\n\n        router.navigate(['/files']);\n      },\n\n      deleteFile(file: UploadedFileModel): void {\n        patchState(store, (state) => ({\n          ...state,\n          uploadedFiles: {\n            ...state.uploadedFiles,\n            [file.id]: {\n              ...state.uploadedFiles[file.id],\n              isDeleted: true,\n            },\n          },\n        }));\n\n        platformService.localStorage?.setItem(\n          JSON_FILES_LOCAL_STORAGE,\n          JSON.stringify(store.uploadedFiles()),\n        );\n      },\n\n      updatePagination(pagination: Partial<FileState['pagination']>): void {\n        patchState(store, (state) => ({\n          ...state,\n          pagination: {\n            ...state.pagination,\n            ...pagination,\n          },\n        }));\n\n        router.navigate([], {\n          queryParams: {\n            page: store.pagination().page,\n          },\n        });\n      },\n    }),\n  ),\n  withHooks(\n    (\n      store,\n      platformService = inject(PlatformService),\n      route = inject(ActivatedRoute),\n    ) => ({\n      onInit(): void {\n        const uploadedFilesInLocalStorage = JSON.parse(\n          platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ??\n            '{}',\n        );\n\n        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? '1';\n\n        patchState(store, (state) => ({\n          uploadedFiles: {\n            ...state.uploadedFiles,\n            ...uploadedFilesInLocalStorage,\n          },\n          pagination: {\n            ...state.pagination,\n            page: +pageFromParams,\n          },\n        }));\n\n        // effect(() => {\n        //   const { page } = store.pagination();\n\n        //   router.navigate([], {\n        //     queryParams: {\n        //       page: page,\n        //     },\n        //   });\n        // });\n      },\n    }),\n  ),\n)"
                 },
                 {
                     "name": "initialState",
@@ -1832,7 +1878,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ValidatorFn",
-                    "defaultValue": "(control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Name is required' } };\n  if (value.length > 128)\n    return { maxlength: { message: 'Maximum length is 128' } };\n\n  if (value.includes(`42c-${githubUsername}`))\n    return { forbiddenSubstring: true };\n  return null;\n}"
+                    "defaultValue": "(control): ValidationErrors | null => {\n  const value = control.value;\n\n  // Built-in errors first\n  if (!value) return { required: { message: 'Description is required' } };\n  if (value.length > 128)\n    return { maxlength: { message: 'Maximum length is 128' } };\n\n  if (value.includes(`42c-${githubUsername}`))\n    return { forbiddenSubstring: true };\n  return null;\n}"
                 },
                 {
                     "name": "validateName",
@@ -2069,7 +2115,7 @@
                 "linktype": "component",
                 "name": "Files",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -2078,7 +2124,7 @@
                 "linktype": "component",
                 "name": "Home",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {

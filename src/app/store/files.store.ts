@@ -121,16 +121,6 @@ export const FileStore = signalStore(
             page: +pageFromParams,
           },
         }));
-
-        // effect(() => {
-        //   const { page } = store.pagination();
-
-        //   router.navigate([], {
-        //     queryParams: {
-        //       page: page,
-        //     },
-        //   });
-        // });
       },
     }),
   ),

@@ -3,13 +3,11 @@ import { FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 const githubUsername = 'test123';
 
 const validateName: ValidatorFn = (control): ValidationErrors | null => {
-  const value = control.value;
+  const value = control?.value;
 
   // Built-in errors first
   if (!value) return { required: { message: 'Name is required' } };
-  if (value.length < 1)
-    return { minlength: { message: 'Minimum length is 1' } };
-  if (value.length > 32)
+  if (value?.length > 32)
     return { maxlength: { message: 'Maximum length is 32' } };
 
   // Custom validations
