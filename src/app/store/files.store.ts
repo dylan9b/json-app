@@ -1,5 +1,5 @@
-import { computed, inject } from '@angular/core';
-import { FileState, UploadedFileModel } from './files.state';
+import { computed, inject } from "@angular/core";
+import { FileState, UploadedFileModel } from "./files.state";
 import {
   patchState,
   signalStore,
@@ -7,10 +7,10 @@ import {
   withHooks,
   withMethods,
   withState,
-} from '@ngrx/signals';
-import { withDevtools } from '@angular-architects/ngrx-toolkit';
-import { PlatformService } from '@services/platform.service';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@ngrx/signals";
+import { withDevtools } from "@angular-architects/ngrx-toolkit";
+import { PlatformService } from "@services/platform.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 const initialState: FileState = {
   pagination: {
@@ -20,11 +20,11 @@ const initialState: FileState = {
   uploadedFiles: {},
 };
 
-const JSON_FILES_LOCAL_STORAGE = 'jsonFiles';
+const JSON_FILES_LOCAL_STORAGE = "jsonFiles";
 
 export const FileStore = signalStore(
-  { providedIn: 'root' },
-  withDevtools('files'),
+  { providedIn: "root" },
+  withDevtools("files"),
   withState(initialState),
   withComputed((state) => ({
     filesUploaded: computed(() =>
@@ -59,7 +59,7 @@ export const FileStore = signalStore(
           JSON.stringify(store.uploadedFiles()),
         );
 
-        router.navigate(['/files']);
+        router.navigate(["/files"]);
       },
 
       deleteFile(file: UploadedFileModel): void {
@@ -80,7 +80,7 @@ export const FileStore = signalStore(
         );
       },
 
-      updatePagination(pagination: Partial<FileState['pagination']>): void {
+      updatePagination(pagination: Partial<FileState["pagination"]>): void {
         patchState(store, (state) => ({
           ...state,
           pagination: {
@@ -106,10 +106,10 @@ export const FileStore = signalStore(
       onInit(): void {
         const uploadedFilesInLocalStorage = JSON.parse(
           platformService.localStorage?.getItem(JSON_FILES_LOCAL_STORAGE) ??
-            '{}',
+            "{}",
         );
 
-        const pageFromParams = route.snapshot.queryParamMap.get('page') ?? '1';
+        const pageFromParams = route.snapshot.queryParamMap.get("page") ?? "1";
 
         patchState(store, (state) => ({
           uploadedFiles: {

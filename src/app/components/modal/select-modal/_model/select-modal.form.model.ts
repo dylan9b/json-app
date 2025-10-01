@@ -1,23 +1,23 @@
-import { FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-const githubUsername = 'test123';
+const githubUsername = "test123";
 
 const validateName: ValidatorFn = (control): ValidationErrors | null => {
   const value = control?.value;
 
   // Built-in errors first
-  if (!value) return { required: { message: 'Name is required' } };
+  if (!value) return { required: { message: "Name is required" } };
   if (value?.length > 32)
-    return { maxlength: { message: 'Maximum length is 32' } };
+    return { maxlength: { message: "Maximum length is 32" } };
 
   // Custom validations
-  if (typeof value !== 'string')
-    return { invalidType: { message: 'Value must be a string' } };
+  if (typeof value !== "string")
+    return { invalidType: { message: "Value must be a string" } };
   if (!/^[A-Za-z0-9_-]+$/.test(value))
     return {
       invalidCharacters: {
         message:
-          'Only alphanumeric characters, underscores, and hyphens are allowed',
+          "Only alphanumeric characters, underscores, and hyphens are allowed",
       },
     };
   if (!value.includes(`42c-${githubUsername}`))
@@ -34,9 +34,9 @@ const validateDescription: ValidatorFn = (control): ValidationErrors | null => {
   const value = control.value;
 
   // Built-in errors first
-  if (!value) return { required: { message: 'Description is required' } };
+  if (!value) return { required: { message: "Description is required" } };
   if (value.length > 128)
-    return { maxlength: { message: 'Maximum length is 128' } };
+    return { maxlength: { message: "Maximum length is 128" } };
 
   if (value.includes(`42c-${githubUsername}`))
     return { forbiddenSubstring: true };

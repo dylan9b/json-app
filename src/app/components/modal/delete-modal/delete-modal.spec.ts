@@ -1,17 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DeleteModal } from './delete-modal';
-import { Button } from '@components/button/button';
-import { FileStore } from '@store/files.store';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { provideZonelessChangeDetection } from '@angular/core';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { DeleteModal } from "./delete-modal";
+import { Button } from "@components/button/button";
+import { FileStore } from "@store/files.store";
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { provideZonelessChangeDetection } from "@angular/core";
 
-describe('DeleteModal', () => {
+describe("DeleteModal", () => {
   let fixture: ComponentFixture<DeleteModal>;
   let component: DeleteModal;
   let fileStoreMock: { deleteFile: jest.Mock };
   let activeModalMock: { close: jest.Mock };
 
-  const mockFile = { file: { id: '1', name: 'file1.json' } } as unknown;
+  const mockFile = { file: { id: "1", name: "file1.json" } } as unknown;
 
   beforeEach(async () => {
     fileStoreMock = { deleteFile: jest.fn() };
@@ -28,24 +28,24 @@ describe('DeleteModal', () => {
 
     fixture = TestBed.createComponent(DeleteModal);
 
-    fixture.componentRef.setInput('file', mockFile);
+    fixture.componentRef.setInput("file", mockFile);
 
     fixture.detectChanges();
     component = fixture.componentInstance;
   });
 
-  it('should create the DeleteModal component', () => {
+  it("should create the DeleteModal component", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call deleteFile and close modal on confirm', () => {
+  it("should call deleteFile and close modal on confirm", () => {
     component.onConfirm();
 
     expect(fileStoreMock.deleteFile).toHaveBeenCalledWith(mockFile);
     expect(activeModalMock.close).toHaveBeenCalled();
   });
 
-  it('should only close modal on cancel', () => {
+  it("should only close modal on cancel", () => {
     component.onCancel();
 
     expect(activeModalMock.close).toHaveBeenCalled();

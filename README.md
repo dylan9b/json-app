@@ -57,14 +57,17 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
 # json-app
 
 # Available commands execute
+
 - nx lint
 - nx prettier
 - nx test
 
 # Assumptions and Considerations
+
 - Since there is no mobile design, I adapted the same layout and also used table for list page but added ellipses to maintain structure.
 - The ability to restore a deleted item from user's browser is done by manually manipulating the localStorage and setting 'isDeleted' to true. This simulated what might happen in an actual scneario through an api call where soft-delete is performed.
 - Clicking on the logo in navbar, redirects user to home page.

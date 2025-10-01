@@ -3,11 +3,11 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
   isDevMode,
-} from '@angular/core';
-import { provideRouter, withHashLocation } from '@angular/router';
+} from "@angular/core";
+import { provideRouter, withHashLocation } from "@angular/router";
 
-import { routes } from './app.routes';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { routes } from "./app.routes";
+import { provideStoreDevtools } from "@ngrx/store-devtools";
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -1,17 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 import {
   NgbModal,
   NgbModalRef,
   NgbModalOptions,
-} from '@ng-bootstrap/ng-bootstrap';
-import { ModalService } from './modal.service';
-import { Component, provideZonelessChangeDetection } from '@angular/core';
+} from "@ng-bootstrap/ng-bootstrap";
+import { ModalService } from "./modal.service";
+import { Component, provideZonelessChangeDetection } from "@angular/core";
 
 // Dummy component for testing modal
-@Component({ template: '' })
+@Component({ template: "" })
 class DummyComponent {}
 
-describe('ModalService', () => {
+describe("ModalService", () => {
   let service: ModalService;
   let ngbModalMock: jest.Mocked<NgbModal>;
 
@@ -36,21 +36,21 @@ describe('ModalService', () => {
     service = TestBed.inject(ModalService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 
-  it('should call NgbModal.open with the correct component and options', () => {
-    const options: NgbModalOptions = { size: 'lg' };
+  it("should call NgbModal.open with the correct component and options", () => {
+    const options: NgbModalOptions = { size: "lg" };
     const modalRef = service.open(DummyComponent, options);
 
     expect(ngbModalMock.open).toHaveBeenCalledWith(DummyComponent, options);
     expect(modalRef).toBeDefined();
-    expect(typeof modalRef.close).toBe('function');
-    expect(typeof modalRef.dismiss).toBe('function');
+    expect(typeof modalRef.close).toBe("function");
+    expect(typeof modalRef.dismiss).toBe("function");
   });
 
-  it('should call NgbModal.open without options if none are provided', () => {
+  it("should call NgbModal.open without options if none are provided", () => {
     const modalRef = service.open(DummyComponent);
 
     expect(ngbModalMock.open).toHaveBeenCalledWith(DummyComponent, undefined);

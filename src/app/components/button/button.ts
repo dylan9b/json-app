@@ -4,13 +4,13 @@ import {
   HostBinding,
   input,
   output,
-} from '@angular/core';
+} from "@angular/core";
 
 @Component({
-  selector: 'app-button',
+  selector: "app-button",
   imports: [],
-  templateUrl: './button.html',
-  styleUrl: './button.scss',
+  templateUrl: "./button.html",
+  styleUrl: "./button.scss",
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -21,13 +21,13 @@ export class Button {
   readonly primary = input<boolean>(false);
   readonly secondary = input<boolean>(false);
 
-  readonly variant = input<'primary' | 'secondary'>('primary');
+  readonly variant = input<"primary" | "secondary">("primary");
 
-  @HostBinding('class.primary') get isPrimary() {
-    return this.variant() === 'primary';
+  @HostBinding("class.primary") get isPrimary() {
+    return this.variant() === "primary";
   }
 
-  @HostBinding('class.secondary') get isSecondary() {
-    return this.variant() === 'secondary';
+  @HostBinding("class.secondary") get isSecondary() {
+    return this.variant() === "secondary";
   }
 }

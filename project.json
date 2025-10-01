@@ -24,17 +24,10 @@
           "src/assets"
         ],
         "stylePreprocessorOptions": {
-          "includePaths": [
-            "src/assets/fonts",
-            "src/styles"
-          ]
+          "includePaths": ["src/assets/fonts", "src/styles"]
         },
-        "styles": [
-          "src/styles.scss"
-        ],
-        "polyfills": [
-          "@angular/localize/init"
-        ],
+        "styles": ["src/styles.scss"],
+        "polyfills": ["@angular/localize/init"],
         "outputPath": "dist/json-app"
       },
       "configurations": {
@@ -60,9 +53,7 @@
         }
       },
       "defaultConfiguration": "production",
-      "outputs": [
-        "{options.outputPath}"
-      ]
+      "outputs": ["{options.outputPath}"]
     },
     "serve": {
       "executor": "@angular/build:dev-server",
@@ -82,14 +73,9 @@
     "lint": {
       "executor": "@angular-eslint/builder:lint",
       "options": {
-        "lintFilePatterns": [
-          "src/**/*.ts",
-          "src/**/*.html"
-        ]
+        "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
       },
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     },
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
@@ -97,12 +83,7 @@
         "configDir": ".storybook",
         "browserTarget": "json-app:build",
         "compodoc": true,
-        "compodocArgs": [
-          "-e",
-          "json",
-          "-d",
-          "."
-        ],
+        "compodocArgs": ["-e", "json", "-d", "."],
         "port": 6006,
         "experimentalZoneless": true
       }
@@ -113,12 +94,7 @@
         "configDir": ".storybook",
         "browserTarget": "json-app:build",
         "compodoc": true,
-        "compodocArgs": [
-          "-e",
-          "json",
-          "-d",
-          "."
-        ],
+        "compodocArgs": ["-e", "json", "-d", "."],
         "outputDir": "storybook-static",
         "experimentalZoneless": true
       }

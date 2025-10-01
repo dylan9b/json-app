@@ -4,16 +4,16 @@ import {
   inject,
   input,
   signal,
-} from '@angular/core';
-import { DeleteModal } from '@components/modal/delete-modal/delete-modal';
-import { ModalService } from '@services/modal.service';
-import { UploadedFileModel } from '@store/files.state';
+} from "@angular/core";
+import { DeleteModal } from "@components/modal/delete-modal/delete-modal";
+import { ModalService } from "@services/modal.service";
+import { UploadedFileModel } from "@store/files.state";
 
 @Component({
-  selector: 'app-table-row-item',
+  selector: "app-table-row-item",
   imports: [],
-  templateUrl: './table-row-item.html',
-  styleUrl: './table-row-item.scss',
+  templateUrl: "./table-row-item.html",
+  styleUrl: "./table-row-item.scss",
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -24,7 +24,7 @@ export class TableRowItem {
 
   onDeleteFile(file: UploadedFileModel): void {
     const modalRef = this._modalService.open(DeleteModal, {
-      size: 'md',
+      size: "md",
       centered: true,
     });
     modalRef.componentInstance.file = signal(file);

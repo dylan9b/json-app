@@ -4,17 +4,17 @@ import {
   computed,
   inject,
   input,
-} from '@angular/core';
-import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
-import { UploadedFileModel } from '@store/files.state';
-import { FileStore } from '@store/files.store';
-import { TableRowItem } from './table-row-item/table-row-item';
+} from "@angular/core";
+import { NgbPagination } from "@ng-bootstrap/ng-bootstrap";
+import { UploadedFileModel } from "@store/files.state";
+import { FileStore } from "@store/files.store";
+import { TableRowItem } from "./table-row-item/table-row-item";
 
 @Component({
-  selector: 'app-table-row',
+  selector: "app-table-row",
   imports: [NgbPagination, TableRowItem],
-  templateUrl: './table-row.html',
-  styleUrl: './table-row.scss',
+  templateUrl: "./table-row.html",
+  styleUrl: "./table-row.scss",
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -24,7 +24,7 @@ export class TableRow {
 
   protected readonly paginationSignal = this._fileStore.pagination;
 
-  protected readonly headers = ['File', 'Name', 'Description', 'Status', ''];
+  protected readonly headers = ["File", "Name", "Description", "Status", ""];
 
   protected paginatedFilesSignal = computed(() => {
     const { page, pageSize } = this.paginationSignal();

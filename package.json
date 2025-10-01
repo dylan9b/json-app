@@ -10,8 +10,8 @@
     "test:coverage": "jest --coverage",
     "deploy": "npx angular-cli-ghpages --dir=dist/json-app/browser",
     "lint": "nx lint",
-    "prettier": "prettier --write \"src/**/*.{ts,html,scss}\"",
-    "prettier:check": "prettier --check \"src/**/*.{ts,html,scss}\"",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "storybook": "nx run json-app:storybook",
     "build-storybook": "nx run json-app:build-storybook"
   },
@@ -47,16 +47,6 @@
         ]
       }
     }
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
   },
   "private": true,
   "dependencies": {
@@ -103,7 +93,6 @@
     "prettier": "^3.6.2",
     "storybook": "^9.1.8",
     "ts-jest": "^29.4.4",
-    "ts-node": "^10.9.2",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.40.0"
   }

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { ValidationErrors } from '@angular/forms';
+import { Injectable } from "@angular/core";
+import { ValidationErrors } from "@angular/forms";
 
 export interface ValidateJsonResult {
   isValid: boolean;
@@ -8,7 +8,7 @@ export interface ValidateJsonResult {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class FileUtilsService {
   /**
@@ -16,10 +16,10 @@ export class FileUtilsService {
    */
   async validateJsonFile(file: File): Promise<ValidateJsonResult> {
     // Check file extension
-    if (!file.name.toLowerCase().endsWith('.json')) {
+    if (!file.name.toLowerCase().endsWith(".json")) {
       return {
         isValid: false,
-        error: { invalidFileType: { message: 'Only JSON files are allowed' } },
+        error: { invalidFileType: { message: "Only JSON files are allowed" } },
       };
     }
 

@@ -1,4 +1,4 @@
 export const RoutesConstants = {
-  HOME: 'home',
-  FILES: 'files',
+  HOME: "home",
+  FILES: "files",
 };

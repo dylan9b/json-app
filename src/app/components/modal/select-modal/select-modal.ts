@@ -3,20 +3,20 @@ import {
   Component,
   inject,
   signal,
-} from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { SelectModalFormControl } from './_model/select-modal.form.model';
-import { Button } from '@components/button/button';
-import { FileStore } from '@store/files.store';
-import { UploadedFileModel } from '@store/files.state';
-import { FileUtilsService } from '@services/file-utils.service';
+} from "@angular/core";
+import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { SelectModalFormControl } from "./_model/select-modal.form.model";
+import { Button } from "@components/button/button";
+import { FileStore } from "@store/files.store";
+import { UploadedFileModel } from "@store/files.state";
+import { FileUtilsService } from "@services/file-utils.service";
 
 @Component({
-  selector: 'app-select-modal',
+  selector: "app-select-modal",
   imports: [ReactiveFormsModule, Button],
-  templateUrl: './select-modal.html',
-  styleUrl: './select-modal.scss',
+  templateUrl: "./select-modal.html",
+  styleUrl: "./select-modal.scss",
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -47,7 +47,7 @@ export class SelectModal {
       const file = input.files[0];
 
       this.uploadedFileSignal.set(file);
-      this.form.get('file')?.setErrors(null);
+      this.form.get("file")?.setErrors(null);
     }
   }
 
@@ -59,8 +59,8 @@ export class SelectModal {
     const description = this.form.value.description;
 
     if (!uploadedFile) {
-      this.form.get('file')?.setErrors({
-        invalidFileType: { message: 'File is required' },
+      this.form.get("file")?.setErrors({
+        invalidFileType: { message: "File is required" },
       });
       return;
     }
@@ -70,7 +70,7 @@ export class SelectModal {
       await this._fileUtilsService.validateJsonFile(uploadedFile);
 
     if (error) {
-      this.form.get('file')?.setErrors(error);
+      this.form.get("file")?.setErrors(error);
       return;
     }
 

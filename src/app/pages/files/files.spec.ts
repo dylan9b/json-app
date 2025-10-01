@@ -1,14 +1,14 @@
-import '@angular/localize/init';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Files } from './files';
-import { ModalService } from '@services/modal.service';
-import { FileStore } from '@store/files.store';
-import { Button } from '@components/button/button';
-import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { provideZonelessChangeDetection, signal } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { TableRow } from '@components/table-row/table-row';
-import { SelectModal } from '@components/modal/select-modal/select-modal';
+import "@angular/localize/init";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { Files } from "./files";
+import { ModalService } from "@services/modal.service";
+import { FileStore } from "@store/files.store";
+import { Button } from "@components/button/button";
+import { NgbAlert } from "@ng-bootstrap/ng-bootstrap";
+import { provideZonelessChangeDetection, signal } from "@angular/core";
+import { provideRouter } from "@angular/router";
+import { TableRow } from "@components/table-row/table-row";
+import { SelectModal } from "@components/modal/select-modal/select-modal";
 
 class TestFiles extends Files {
   public getFilesSignal() {
@@ -16,7 +16,7 @@ class TestFiles extends Files {
   }
 }
 
-describe('Files', () => {
+describe("Files", () => {
   let fixture: ComponentFixture<TestFiles>;
   let component: TestFiles;
   let modalServiceMock: { open: jest.Mock };
@@ -25,7 +25,7 @@ describe('Files', () => {
   beforeEach(() => {
     modalServiceMock = { open: jest.fn() };
     fileStoreMock = {
-      filesUploaded: signal([{ file: { id: '1', name: 'file1.json' } }]),
+      filesUploaded: signal([{ file: { id: "1", name: "file1.json" } }]),
       pagination: signal({ page: 1, pageSize: 10 }),
       updatePagination: jest.fn(),
     };
@@ -45,19 +45,19 @@ describe('Files', () => {
     fixture.detectChanges();
   });
 
-  it('should create the Files component', () => {
+  it("should create the Files component", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should expose filesSignal from FileStore', () => {
+  it("should expose filesSignal from FileStore", () => {
     const files = component.getFilesSignal()(); // call the signal
-    expect(files).toEqual([{ file: { id: '1', name: 'file1.json' } }]);
+    expect(files).toEqual([{ file: { id: "1", name: "file1.json" } }]);
   });
 
-  it('should open SelectModal when onUploadFile is called', () => {
+  it("should open SelectModal when onUploadFile is called", () => {
     component.onUploadFile();
     expect(modalServiceMock.open).toHaveBeenCalledWith(SelectModal, {
-      size: 'md',
+      size: "md",
       centered: true,
     });
   });

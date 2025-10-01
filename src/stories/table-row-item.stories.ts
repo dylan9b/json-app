@@ -1,23 +1,23 @@
-import { TableRowItem } from '@components/table-row/table-row-item/table-row-item';
-import type { Meta, StoryObj } from '@storybook/angular';
-import { CommonModule } from '@angular/common';
-import { signal } from '@angular/core';
-import { UploadedFileModel } from '@store/files.state';
-import { ModalService } from '@services/modal.service';
+import { TableRowItem } from "@components/table-row/table-row-item/table-row-item";
+import type { Meta, StoryObj } from "@storybook/angular";
+import { CommonModule } from "@angular/common";
+import { signal } from "@angular/core";
+import { UploadedFileModel } from "@store/files.state";
+import { ModalService } from "@services/modal.service";
 
 const exampleFile: UploadedFileModel = {
-  id: '123',
-  name: 'test.json',
-  description: 'Example JSON file',
+  id: "123",
+  name: "test.json",
+  description: "Example JSON file",
   isValid: true,
-  file: new File(['dummy content'], 'test.json'),
+  file: new File(["dummy content"], "test.json"),
   isDeleted: false,
 };
 
 const meta: Meta<TableRowItem> = {
-  title: 'Components/TableRowItem',
+  title: "Components/TableRowItem",
   component: TableRowItem,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (story) => ({
       ...story(),
